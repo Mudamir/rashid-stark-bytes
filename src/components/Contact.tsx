@@ -51,20 +51,20 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 md:py-32">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-black text-center mb-6 gradient-text">
+    <section id="contact" className="py-16 md:py-32">
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-center mb-4 md:mb-6 gradient-text">
           Let's Connect
         </h2>
-        <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground text-sm md:text-base lg:text-lg mb-12 md:mb-16 max-w-2xl mx-auto px-4">
           Have a project in mind or want to collaborate? I'd love to hear from you.
         </p>
 
         <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Form */}
-            <Card className="p-8 bg-card/50 backdrop-blur border-2 border-primary/20 hover-glow animate-slide-in-left">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <Card className="p-6 md:p-8 bg-card/50 backdrop-blur border-2 border-primary/20 hover-glow animate-slide-in-left">
+              <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
                     Name
@@ -75,7 +75,7 @@ const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your name"
                     required
-                    className="bg-background/50 border-border focus:border-primary"
+                    className="bg-background/50 border-border focus:border-primary h-11 md:h-12 text-sm md:text-base touch-feedback"
                   />
                 </div>
                 <div>
@@ -89,7 +89,7 @@ const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="your.email@example.com"
                     required
-                    className="bg-background/50 border-border focus:border-primary"
+                    className="bg-background/50 border-border focus:border-primary h-11 md:h-12 text-sm md:text-base touch-feedback"
                   />
                 </div>
                 <div>
@@ -103,13 +103,13 @@ const Contact = () => {
                     placeholder="Tell me about your project..."
                     rows={5}
                     required
-                    className="bg-background/50 border-border focus:border-primary resize-none"
+                    className="bg-background/50 border-border focus:border-primary resize-none text-sm md:text-base touch-feedback"
                   />
                 </div>
                 <Button 
                   type="submit"
                   size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue touch-feedback h-12 md:h-14 text-base md:text-lg"
                 >
                   Send Message
                 </Button>
@@ -117,10 +117,10 @@ const Contact = () => {
             </Card>
 
             {/* Social Links */}
-            <div className="animate-slide-in-right space-y-6">
+            <div className="animate-slide-in-right space-y-5 md:space-y-6">
               <div>
-                <h3 className="text-2xl font-bold text-foreground mb-6">Connect With Me</h3>
-                <div className="space-y-4">
+                <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4 md:mb-6">Connect With Me</h3>
+                <div className="space-y-3 md:space-y-4">
                   {socialLinks.map((link) => {
                     const Icon = link.icon;
                     return (
@@ -131,21 +131,21 @@ const Contact = () => {
                         rel="noopener noreferrer"
                         className="block"
                       >
-                        <Card className={`p-6 bg-card/50 backdrop-blur border-2 hover-glow transition-all duration-300 ${
-                          link.color === 'primary' ? 'border-primary/20 hover:border-primary/50' :
-                          link.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50' :
-                          'border-accent/20 hover:border-accent/50'
+                        <Card className={`p-4 md:p-6 bg-card/50 backdrop-blur border-2 hover-glow active:shadow-lg transition-all duration-300 touch-feedback ${
+                          link.color === 'primary' ? 'border-primary/20 hover:border-primary/50 active:border-primary/60' :
+                          link.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50 active:border-secondary/60' :
+                          'border-accent/20 hover:border-accent/50 active:border-accent/60'
                         }`}>
-                          <div className="flex items-center gap-4">
-                            <div className={`p-3 rounded-lg ${
+                          <div className="flex items-center gap-3 md:gap-4">
+                            <div className={`p-2 md:p-3 rounded-lg ${
                               link.color === 'primary' ? 'bg-primary/10 text-primary' :
                               link.color === 'secondary' ? 'bg-secondary/10 text-secondary' :
                               'bg-accent/10 text-accent'
                             }`}>
-                              <Icon className="w-6 h-6" />
+                              <Icon className="w-5 h-5 md:w-6 md:h-6" />
                             </div>
                             <div>
-                              <h4 className="font-semibold text-foreground">{link.name}</h4>
+                              <h4 className="font-semibold text-sm md:text-base text-foreground">{link.name}</h4>
                             </div>
                           </div>
                         </Card>

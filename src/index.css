@@ -129,8 +129,27 @@ All colors MUST be HSL.
     transition: var(--transition-smooth);
   }
 
-  .hover-glow:hover {
+  .hover-glow:hover,
+  .hover-glow:active {
     filter: drop-shadow(var(--shadow-glow));
     transform: translateY(-2px);
+  }
+
+  /* Touch feedback */
+  .touch-feedback {
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+
+  .touch-feedback:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .mobile-padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
   }
 }

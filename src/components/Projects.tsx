@@ -56,12 +56,12 @@ const projects: Project[] = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 md:py-32 bg-card/20">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-6xl font-black text-center mb-6 gradient-text">
+    <section id="projects" className="py-16 md:py-32 bg-card/20">
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-3xl sm:text-4xl md:text-6xl font-black text-center mb-4 md:mb-6 gradient-text">
           Featured Projects
         </h2>
-        <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground text-sm md:text-base lg:text-lg mb-12 md:mb-16 max-w-2xl mx-auto px-4">
           Showcasing expertise across three core domains: AI/ML Engineering, UI/UX Design, and Software Engineering
         </p>
 
@@ -74,18 +74,18 @@ const Projects = () => {
         >
           <CarouselContent>
             {projects.map((project) => (
-              <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/2">
+              <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/2 pl-4">
                 <Card 
-                  className={`p-8 bg-card/50 backdrop-blur border-2 hover-glow transition-all duration-500 h-full ${
-                    project.color === 'primary' ? 'border-primary/20 hover:border-primary/50' :
-                    project.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50' :
-                    'border-accent/20 hover:border-accent/50'
+                  className={`p-5 md:p-8 bg-card/50 backdrop-blur border-2 hover-glow active:shadow-lg transition-all duration-500 h-full touch-feedback ${
+                    project.color === 'primary' ? 'border-primary/20 hover:border-primary/50 active:border-primary/60' :
+                    project.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50 active:border-secondary/60' :
+                    'border-accent/20 hover:border-accent/50 active:border-accent/60'
                   }`}
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3 md:space-y-4">
                     <div>
                       <Badge 
-                        className={`mb-3 ${
+                        className={`mb-2 md:mb-3 text-xs md:text-sm ${
                           project.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30' :
                           project.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30' :
                           'bg-accent/20 text-accent border-accent/30'
@@ -93,15 +93,15 @@ const Projects = () => {
                       >
                         {project.category}
                       </Badge>
-                      <h3 className="text-2xl font-bold text-foreground mb-3">
+                      <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-foreground mb-2 md:mb-3">
                         {project.title}
                       </h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {project.tech.map((tech) => (
                         <Badge 
                           key={tech} 

@@ -38,12 +38,12 @@ const Navigation = () => {
           isScrolled ? "bg-background/90 backdrop-blur-lg border-b border-border shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <button 
               onClick={() => scrollToSection("#")}
-              className="text-2xl font-black gradient-text hover-glow"
+              className="text-xl md:text-2xl font-black gradient-text hover-glow touch-feedback"
             >
               RSC
             </button>
@@ -74,9 +74,9 @@ const Navigation = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+              className="md:hidden p-2 text-foreground hover:text-primary transition-colors touch-feedback"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
             </button>
           </div>
         </div>
@@ -84,17 +84,17 @@ const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div className="fixed inset-0 z-40 md:hidden animate-fade-in">
           <div 
             className="absolute inset-0 bg-background/95 backdrop-blur-lg"
             onClick={() => setIsMobileMenuOpen(false)}
           ></div>
-          <div className="relative h-full flex flex-col items-center justify-center gap-8">
+          <div className="relative h-full flex flex-col items-center justify-center gap-6 px-6">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => scrollToSection(link.href)}
-                className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+                className="text-2xl font-semibold text-foreground hover:text-primary active:text-primary transition-colors touch-feedback"
               >
                 {link.name}
               </button>
@@ -102,7 +102,7 @@ const Navigation = () => {
             <Button 
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue w-full max-w-xs mt-4 touch-feedback h-14 text-lg"
             >
               <a href="/Comon_Resume.pdf" download>
                 Download CV
