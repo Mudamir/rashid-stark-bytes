@@ -1,5 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Trophy, Award, Users } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface Achievement {
   icon: typeof Trophy;
@@ -46,40 +53,49 @@ const Achievements = () => {
           Awards, leadership roles, and notable accomplishments
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {achievements.map((achievement, index) => {
-            const Icon = achievement.icon;
-            return (
-              <Card 
-                key={achievement.title}
-                className={`p-8 bg-card/50 backdrop-blur border-2 border-primary/20 hover:border-primary/50 hover-glow transition-all duration-500 ${
-                  index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                }`}
-              >
-                <div className="flex gap-6">
-                  <div className="flex-shrink-0">
-                    <div className="p-4 rounded-lg bg-primary/10 text-primary">
-                      <Icon className="w-8 h-8" />
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {achievements.map((achievement) => {
+              const Icon = achievement.icon;
+              return (
+                <CarouselItem key={achievement.title} className="md:basis-1/2 lg:basis-1/2">
+                  <Card 
+                    className="p-8 bg-card/50 backdrop-blur border-2 border-primary/20 hover:border-primary/50 hover-glow transition-all duration-500 h-full"
+                  >
+                    <div className="flex gap-6">
+                      <div className="flex-shrink-0">
+                        <div className="p-4 rounded-lg bg-primary/10 text-primary">
+                          <Icon className="w-8 h-8" />
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-start justify-between gap-4">
+                          <h3 className="text-xl font-bold text-foreground">
+                            {achievement.title}
+                          </h3>
+                          <span className="text-sm font-semibold text-primary whitespace-nowrap">
+                            {achievement.year}
+                          </span>
+                        </div>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {achievement.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl font-bold text-foreground">
-                        {achievement.title}
-                      </h3>
-                      <span className="text-sm font-semibold text-primary whitespace-nowrap">
-                        {achievement.year}
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {achievement.description}
-                    </p>
-                  </div>
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+                  </Card>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
       </div>
     </section>
   );

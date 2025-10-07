@@ -2,6 +2,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface Project {
   id: string;
@@ -58,52 +65,61 @@ const Projects = () => {
           Showcasing expertise across three core domains: AI/ML Engineering, UI/UX Design, and Software Engineering
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {projects.map((project, index) => (
-            <Card 
-              key={project.id}
-              className={`p-8 bg-card/50 backdrop-blur border-2 hover-glow transition-all duration-500 ${
-                index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'
-              } ${
-                project.color === 'primary' ? 'border-primary/20 hover:border-primary/50' :
-                project.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50' :
-                'border-accent/20 hover:border-accent/50'
-              }`}
-            >
-              <div className="space-y-4">
-                <div>
-                  <Badge 
-                    className={`mb-3 ${
-                      project.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30' :
-                      project.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30' :
-                      'bg-accent/20 text-accent border-accent/30'
-                    }`}
-                  >
-                    {project.category}
-                  </Badge>
-                  <h3 className="text-2xl font-bold text-foreground mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {projects.map((project) => (
+              <CarouselItem key={project.id} className="md:basis-1/2 lg:basis-1/2">
+                <Card 
+                  className={`p-8 bg-card/50 backdrop-blur border-2 hover-glow transition-all duration-500 h-full ${
+                    project.color === 'primary' ? 'border-primary/20 hover:border-primary/50' :
+                    project.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50' :
+                    'border-accent/20 hover:border-accent/50'
+                  }`}
+                >
+                  <div className="space-y-4">
+                    <div>
+                      <Badge 
+                        className={`mb-3 ${
+                          project.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30' :
+                          project.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30' :
+                          'bg-accent/20 text-accent border-accent/30'
+                        }`}
+                      >
+                        {project.category}
+                      </Badge>
+                      <h3 className="text-2xl font-bold text-foreground mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <Badge 
-                      key={tech} 
-                      variant="outline"
-                      className="text-xs bg-background/50"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <Badge 
+                          key={tech} 
+                          variant="outline"
+                          className="text-xs bg-background/50"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </Card>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
       </div>
     </section>
   );

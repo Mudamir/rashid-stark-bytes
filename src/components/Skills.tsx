@@ -1,6 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Palette, Code, Database } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface SkillCategory {
   title: string;
@@ -47,51 +54,60 @@ const Skills = () => {
           A comprehensive toolkit spanning AI, design, and development
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <Card 
-                key={category.title}
-                className={`p-8 bg-card/50 backdrop-blur border-2 hover-glow transition-all duration-500 ${
-                  index % 2 === 0 ? 'animate-slide-in-left' : 'animate-slide-in-right'
-                } ${
-                  category.color === 'primary' ? 'border-primary/20 hover:border-primary/50' :
-                  category.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50' :
-                  'border-accent/20 hover:border-accent/50'
-                }`}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`p-3 rounded-lg ${
-                    category.color === 'primary' ? 'bg-primary/10 text-primary' :
-                    category.color === 'secondary' ? 'bg-secondary/10 text-secondary' :
-                    'bg-accent/10 text-accent'
-                  }`}>
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-foreground">
-                    {category.title}
-                  </h3>
-                </div>
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-6xl mx-auto"
+        >
+          <CarouselContent>
+            {skillCategories.map((category) => {
+              const Icon = category.icon;
+              return (
+                <CarouselItem key={category.title} className="md:basis-1/2 lg:basis-1/2">
+                  <Card 
+                    className={`p-8 bg-card/50 backdrop-blur border-2 hover-glow transition-all duration-500 h-full ${
+                      category.color === 'primary' ? 'border-primary/20 hover:border-primary/50' :
+                      category.color === 'secondary' ? 'border-secondary/20 hover:border-secondary/50' :
+                      'border-accent/20 hover:border-accent/50'
+                    }`}
+                  >
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`p-3 rounded-lg ${
+                        category.color === 'primary' ? 'bg-primary/10 text-primary' :
+                        category.color === 'secondary' ? 'bg-secondary/10 text-secondary' :
+                        'bg-accent/10 text-accent'
+                      }`}>
+                        <Icon className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-foreground">
+                        {category.title}
+                      </h3>
+                    </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge 
-                      key={skill}
-                      className={`text-sm ${
-                        category.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30' :
-                        category.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30 hover:bg-secondary/30' :
-                        'bg-accent/20 text-accent border-accent/30 hover:bg-accent/30'
-                      } transition-colors`}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </Card>
-            );
-          })}
-        </div>
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill) => (
+                        <Badge 
+                          key={skill}
+                          className={`text-sm ${
+                            category.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30 hover:bg-primary/30' :
+                            category.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30 hover:bg-secondary/30' :
+                            'bg-accent/20 text-accent border-accent/30 hover:bg-accent/30'
+                          } transition-colors`}
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </Card>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious className="hidden md:flex" />
+          <CarouselNext className="hidden md:flex" />
+        </Carousel>
       </div>
     </section>
   );
