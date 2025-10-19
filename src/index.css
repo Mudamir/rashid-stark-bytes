@@ -8,55 +8,60 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Futuristic Dark Theme with Neon Accents */
-    --background: 220 25% 6%;
-    --foreground: 210 20% 98%;
+    /* Tony Stark / Iron Man Inspired Theme - Arc Reactor Aesthetic */
+    --background: 220 30% 4%;
+    --foreground: 40 10% 98%;
 
-    --card: 220 20% 10%;
-    --card-foreground: 210 20% 98%;
+    --card: 220 25% 8%;
+    --card-foreground: 40 10% 98%;
 
-    --popover: 220 20% 8%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 220 25% 6%;
+    --popover-foreground: 40 10% 98%;
 
-    /* Neon Blue Primary */
-    --primary: 200 100% 60%;
-    --primary-foreground: 220 25% 6%;
-    --primary-glow: 200 100% 70%;
+    /* Arc Reactor Blue - Primary */
+    --primary: 195 100% 65%;
+    --primary-foreground: 220 30% 4%;
+    --primary-glow: 195 100% 75%;
 
-    /* Purple Secondary */
-    --secondary: 270 80% 65%;
-    --secondary-foreground: 220 25% 6%;
-    --secondary-glow: 280 90% 75%;
+    /* Iron Man Gold - Secondary */
+    --secondary: 45 100% 55%;
+    --secondary-foreground: 220 30% 4%;
+    --secondary-glow: 45 100% 65%;
 
-    --muted: 220 15% 20%;
-    --muted-foreground: 210 15% 65%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 210 15% 70%;
 
-    /* Neon Accent */
-    --accent: 180 100% 50%;
-    --accent-foreground: 220 25% 6%;
+    /* Mark 50 Red - Accent */
+    --accent: 0 85% 58%;
+    --accent-foreground: 220 30% 4%;
 
     --destructive: 0 85% 60%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive-foreground: 40 10% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 15%;
-    --ring: 200 100% 60%;
+    --border: 220 25% 15%;
+    --input: 220 25% 12%;
+    --ring: 195 100% 65%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(200 100% 60%), hsl(270 80% 65%));
-    --gradient-glow: linear-gradient(135deg, hsl(200 100% 70% / 0.2), hsl(280 90% 75% / 0.2));
-    --gradient-hero: linear-gradient(180deg, hsl(220 25% 6%), hsl(220 30% 10%));
+    /* Arc Reactor Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(195 100% 65%), hsl(200 100% 75%), hsl(195 100% 55%));
+    --gradient-stark: linear-gradient(135deg, hsl(0 85% 58%), hsl(45 100% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(45 100% 55%), hsl(40 100% 60%), hsl(35 100% 50%));
+    --gradient-arc: radial-gradient(circle, hsl(195 100% 75% / 0.4), hsl(195 100% 65% / 0.2), transparent);
+    --gradient-glow: linear-gradient(135deg, hsl(195 100% 75% / 0.3), hsl(45 100% 65% / 0.2));
+    --gradient-hero: linear-gradient(180deg, hsl(220 30% 4%), hsl(220 35% 8%), hsl(220 30% 6%));
 
-    /* Shadows */
-    --shadow-neon-blue: 0 0 40px hsl(200 100% 60% / 0.4);
-    --shadow-neon-purple: 0 0 40px hsl(270 80% 65% / 0.4);
-    --shadow-card: 0 10px 40px hsl(220 25% 4% / 0.5);
-    --shadow-glow: 0 0 60px hsl(200 100% 70% / 0.3);
+    /* Holographic Shadows */
+    --shadow-arc-reactor: 0 0 60px hsl(195 100% 65% / 0.6), 0 0 100px hsl(195 100% 65% / 0.3);
+    --shadow-gold: 0 0 40px hsl(45 100% 55% / 0.5), 0 0 80px hsl(45 100% 55% / 0.2);
+    --shadow-red: 0 0 40px hsl(0 85% 58% / 0.5);
+    --shadow-card: 0 10px 50px hsl(220 30% 2% / 0.6), 0 0 30px hsl(195 100% 65% / 0.1);
+    --shadow-stark: 0 0 80px hsl(195 100% 70% / 0.4), 0 0 40px hsl(45 100% 60% / 0.3);
 
-    /* Animation */
+    /* JARVIS Animation */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-jarvis: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
@@ -99,40 +104,135 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
-  /* Neon glow effects */
+  /* Arc Reactor glow effects */
   .glow-blue {
-    box-shadow: var(--shadow-neon-blue);
+    box-shadow: var(--shadow-arc-reactor);
   }
 
-  .glow-purple {
-    box-shadow: var(--shadow-neon-purple);
+  .glow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .glow-red {
+    box-shadow: var(--shadow-red);
+  }
+
+  .glow-stark {
+    box-shadow: var(--shadow-stark);
   }
 
   .glow-text-blue {
-    text-shadow: 0 0 20px hsl(200 100% 60% / 0.6);
+    text-shadow: 0 0 30px hsl(195 100% 65% / 0.8), 0 0 60px hsl(195 100% 65% / 0.4);
   }
 
-  .glow-text-purple {
-    text-shadow: 0 0 20px hsl(270 80% 65% / 0.6);
+  .glow-text-gold {
+    text-shadow: 0 0 30px hsl(45 100% 55% / 0.8), 0 0 60px hsl(45 100% 55% / 0.4);
   }
 
-  /* Gradient text */
+  .glow-text-red {
+    text-shadow: 0 0 30px hsl(0 85% 58% / 0.8);
+  }
+
+  /* Gradient text effects */
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .gradient-stark {
+    background: var(--gradient-stark);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-gold {
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Arc Reactor pulse effect */
+  .arc-reactor {
+    position: relative;
+    animation: arc-pulse 2s ease-in-out infinite;
+  }
+
+  .arc-reactor::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    background: var(--gradient-arc);
+    border-radius: 50%;
+    animation: arc-rotate 4s linear infinite;
+    z-index: -1;
+  }
+
+  /* Holographic border effect */
+  .holographic-border {
+    position: relative;
+    border: 1px solid transparent;
+    background: linear-gradient(var(--card), var(--card)) padding-box,
+                var(--gradient-primary) border-box;
+  }
+
+  /* JARVIS scan line effect */
+  .jarvis-scan {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jarvis-scan::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(195 100% 65%), transparent);
+    animation: scan 3s ease-in-out infinite;
   }
 
   /* Hover effects */
   .hover-glow {
-    transition: var(--transition-smooth);
+    transition: var(--transition-jarvis);
   }
 
-  .hover-glow:hover,
+  .hover-glow:hover {
+    filter: drop-shadow(var(--shadow-stark));
+    transform: translateY(-4px) scale(1.02);
+  }
+
   .hover-glow:active {
-    filter: drop-shadow(var(--shadow-glow));
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  /* Stark Industries hover effect */
+  .hover-stark {
+    position: relative;
+    transition: var(--transition-jarvis);
+  }
+
+  .hover-stark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .hover-stark:hover::before {
+    opacity: 1;
   }
 
   /* Touch feedback */
@@ -141,8 +241,32 @@ All colors MUST be HSL.
   }
 
   .touch-feedback:active {
-    transform: scale(0.98);
-    opacity: 0.9;
+    transform: scale(0.97);
+    opacity: 0.85;
+  }
+
+  /* Repulsor beam effect */
+  .repulsor {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .repulsor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsl(195 100% 75%), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+  }
+
+  .repulsor:hover::before {
+    width: 300px;
+    height: 300px;
   }
 
   /* Mobile optimizations */
@@ -150,6 +274,10 @@ All colors MUST be HSL.
     .mobile-padding {
       padding-left: 1rem;
       padding-right: 1rem;
+    }
+    
+    .hover-glow:hover {
+      transform: translateY(-2px) scale(1.01);
     }
   }
 }

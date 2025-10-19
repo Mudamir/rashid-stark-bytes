@@ -43,9 +43,9 @@ const Contact = () => {
       color: "accent"
     },
     {
-      name: "Portfolio",
+      name: "Behance",
       icon: PaletteIcon,
-      href: "#",
+      href: "https://www.behance.net/rashidcomon",
       color: "primary"
     }
   ];
