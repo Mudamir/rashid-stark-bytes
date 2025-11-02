@@ -10,10 +10,12 @@ interface Project {
   company: string;
   period: string;
   category: "AI/ML" | "UI/UX" | "Software Engineering" | "Design" | "All";
+  type: "software" | "research" | "design";
   description: string;
   achievements: string[];
   tech: string[];
   color: "primary" | "secondary" | "accent";
+  image?: string;
   links?: {
     github?: string;
     demo?: string;
@@ -28,6 +30,8 @@ const projects: Project[] = [
     company: "UI/UX Designer | Computer Scientist | Researcher",
     period: "Aug 2024 - Oct 2025",
     category: "AI/ML",
+    type: "research",
+    image: "/projects/mathemathink-placeholder.png",
     description: "A web-based rule-based screening tool for early detection of dyscalculia among Filipino schoolchildren. Using six math cognition tasks and DSM-5-based criteria, it classified students as 'at-risk' or 'not at-risk'. Tested on 424 students (Grades 2-4) from Davao and Digos City, the tool found a 7.5% overall risk rate. Validated by psychometricians, the tool proved performance and identified Grade 2 as a key stage for intervention.",
     achievements: [
       "Developed accessible, culturally relevant dyscalculia screening aligned with SDG 4",
@@ -47,6 +51,8 @@ const projects: Project[] = [
     company: "Software Developer | ML Engineer",
     period: "March 2025 - Sept 2024",
     category: "AI/ML",
+    type: "research",
+    image: "/projects/resnet-placeholder.png",
     description: "Led a research project integrating deep learning architectures (ResNet-50 and ResNet-101) for automated gender classification based on handwritten samples, achieving enhanced accuracy and scalability. The study contributes to advancements in forensic science and biometric authentication, demonstrating the potential of CNN models for handwriting analysis reliability and efficiency.",
     achievements: [
       "Integrated ResNet-50 and ResNet-101 for enhanced accuracy in gender classification",
@@ -65,6 +71,8 @@ const projects: Project[] = [
     company: "AI Engineer | ML Engineer",
     period: "Jan 2022 - Nov 2023",
     category: "AI/ML",
+    type: "research",
+    image: "/projects/research-placeholder.png",
     description: "Developed an ensemble machine learning framework leveraging NLP and TF-IDF for phishing detection, providing high accuracy and interpretability. This work advances understanding of AI's role in cybersecurity by demonstrating how ensemble methods and explainability improve robustness and trust in automated threat detection systems.",
     achievements: [
       "Developed ensemble ML framework with high accuracy for phishing detection",
@@ -84,6 +92,8 @@ const projects: Project[] = [
     company: "UI/UX Designer | Software Developer",
     period: "Feb 2025 - Aug 2025",
     category: "UI/UX",
+    type: "software",
+    image: "/projects/enstp-placeholder.png",
     description: "As a software developer, I created a functional and user-friendly event registration system for a regional CHED-based organization using Java and object-oriented design. This project strengthened my skills in planning, design, and debugging while delivering a solution that met the client's needs.",
     achievements: [
       "Created functional event registration system for CHED Regional Office XI",
@@ -102,6 +112,8 @@ const projects: Project[] = [
     company: "Ferrer Deco Rental Real Estate",
     period: "Oct 2021 - Dec 2021",
     category: "Software Engineering",
+    type: "software",
+    image: "/projects/realestate-placeholder.png",
     description: "Designed and implemented comprehensive software solutions for rental management and client operations.",
     achievements: [
       "Developed secure databases for property management",
@@ -120,6 +132,8 @@ const projects: Project[] = [
     company: "Kawaii Beach Resort in Samal",
     period: "Jan 2022 - Dec 2023",
     category: "UI/UX",
+    type: "design",
+    image: "/projects/kawaii-placeholder.png",
     description: "Designed and developed a comprehensive booking website with centralized management system and payment integration.",
     achievements: [
       "Created intuitive user flows and modern interface",
@@ -138,6 +152,8 @@ const projects: Project[] = [
     company: "Urban doll (Oregon, Northwest US)",
     period: "Jan 2022 - Dec 2023",
     category: "Design",
+    type: "design",
+    image: "/projects/urbandoll-placeholder.png",
     description: "Led digital branding and content strategy, managing social media platforms and creating engaging campaigns.",
     achievements: [
       "Strengthened company's online presence",
@@ -155,6 +171,8 @@ const projects: Project[] = [
     company: "Machine Learning Research",
     period: "March 2025 - Sept 2024",
     category: "AI/ML",
+    type: "research",
+    image: "/projects/moonitor-placeholder.png",
     description: "Research showing that integrating IoT sensors with machine learning provides a reliable, low-cost method for beef freshness detection, achieving up to 99.91% accuracy. This contributes to science by advancing applied AI and IoT in food safety, with potential impact on public health, industry transparency, and future smart agriculture research.",
     achievements: [
       "Achieved 99.91% accuracy in beef freshness detection",
@@ -173,6 +191,8 @@ const projects: Project[] = [
     company: "Machine Learning Research",
     period: "March 2025 - Sept 2024",
     category: "AI/ML",
+    type: "research",
+    image: "/projects/research-placeholder.png",
     description: "The study evaluated independent vs. combined sensor data using six ML models for beef freshness detection. Independent data with soft voting, using ANN and SVM, achieved the highest accuracy (99.84%), while combined data slightly reduced performance. The result enhances IoT-based food safety, improving AI efficiency and food safety.",
     achievements: [
       "Achieved 99.84% accuracy using independent sensor data with soft voting",
@@ -191,6 +211,8 @@ const projects: Project[] = [
     company: "Data Scientist Research",
     period: "March 2025 - Sept 2024",
     category: "AI/ML",
+    type: "research",
+    image: "/projects/research-placeholder.png",
     description: "Our research used ML regression models (Decision Tree, Random Forest, Gradient Boosting) to predict BPI fund NAVPU from 10+ years of financial data. The Decision Tree model performed best, achieving low error rates and a perfect R² of 1.0. This study advances data science in finance by showing how interpretable ML models can improve investment decisions, risk management, and predictive analytics.",
     achievements: [
       "Achieved perfect R² of 1.0 using Decision Tree model for NAVPU prediction",
@@ -209,6 +231,8 @@ const projects: Project[] = [
     company: "Various Clients",
     period: "Mar 2025 - Aug 2025",
     category: "Design",
+    type: "design",
+    image: "/projects/freelance-placeholder.png",
     description: "Transformed client ideas into compelling visual designs for digital and print platforms.",
     achievements: [
       "Boosted brand visibility for multiple clients",
@@ -216,6 +240,25 @@ const projects: Project[] = [
       "Supported successful marketing campaigns"
     ],
     tech: ["Figma", "Adobe Photoshop", "Canva", "Kittle", "Graphic Design"],
+    color: "secondary",
+    links: {
+    }
+  },
+  {
+    id: "12",
+    title: "Pawnquest",
+    company: "Pitching Competition",
+    period: "Mar 2025 - Aug 2025",
+    category: "UI/UX",
+    type: "design",
+    image: "/projects/pawnquest-placeholder.png",
+    description: "Transformed  ideas into compelling visual designs for a mobile application.",
+    achievements: [
+      "Boosted brand visibility for multiple clients",
+      "Enhanced digital presence across social media",
+      "Supported successful marketing campaigns"
+    ],
+    tech: ["Figma", "React", "Tailwind CSS", "Django", "PayMongo", "UI/UX Design"],
     color: "secondary",
     links: {
     }
@@ -294,12 +337,12 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {/* Uniform Grid Projects */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
           {filteredProjects.map((project, index) => (
             <Card
               key={project.id}
-              className={`relative p-5 md:p-6 bg-card/50 backdrop-blur border-2 hover-stark transition-all duration-500 touch-feedback group animate-fade-in-up ${
+              className={`relative overflow-hidden bg-card/50 backdrop-blur border-2 hover-stark transition-all duration-500 touch-feedback group animate-fade-in-up flex flex-col ${
                 project.color === 'primary' ? 'border-primary/30 hover:border-primary/60' :
                 project.color === 'secondary' ? 'border-secondary/30 hover:border-secondary/60' :
                 'border-accent/30 hover:border-accent/60'
@@ -320,19 +363,64 @@ const Projects = () => {
                 'bg-gradient-to-r from-transparent via-accent to-transparent'
               }`}></div>
 
-              <div className="space-y-3 md:space-y-4 relative z-10">
-                {/* Header */}
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <Badge 
-                      className={`text-xs font-mono ${
-                        project.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30' :
-                        project.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30' :
-                        'bg-accent/20 text-accent border-accent/30'
-                      }`}
-                    >
-                      {project.category}
+              {/* Project Image / Research Visual */}
+              <div className={`relative h-40 overflow-hidden bg-gradient-to-br ${
+                project.color === 'primary' ? 'from-primary/20 to-primary/5' :
+                project.color === 'secondary' ? 'from-secondary/20 to-secondary/5' :
+                'from-accent/20 to-accent/5'
+              }`}>
+                {project.image ? (
+                  <>
+                    {/* Actual Image for Software/Design Projects */}
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    {/* Research Paper Visual */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                      <FileText className={`w-16 h-16 ${
+                        project.color === 'primary' ? 'text-primary' :
+                        project.color === 'secondary' ? 'text-secondary' :
+                        'text-accent'
+                      } opacity-20`} />
+                      <span className="text-xs font-mono text-muted-foreground/50">RESEARCH PAPER</span>
+                    </div>
+                  </>
+                )}
+                
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent"></div>
+                
+                {/* Type & Category badges */}
+                <div className="absolute bottom-2 left-2 right-2 flex gap-2">
+                  <Badge 
+                    className={`text-xs font-mono ${
+                      project.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30' :
+                      project.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30' :
+                      'bg-accent/20 text-accent border-accent/30'
+                    }`}
+                  >
+                    {project.category}
+                  </Badge>
+                  {project.type === 'research' && (
+                    <Badge className="text-xs font-mono bg-accent/20 text-accent border-accent/30">
+                      Research
                     </Badge>
+                  )}
+                </div>
+              </div>
+
+              <div className="p-4 md:p-5 space-y-2 md:space-y-3 relative z-10 flex flex-col flex-1">
+                {/* Header */}
+                <div className="flex-1 overflow-hidden">
+                  <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="text-xs text-muted-foreground font-mono">{project.period}</span>
                   </div>
                   
@@ -342,19 +430,13 @@ const Projects = () => {
                   
                   <p className="text-xs md:text-sm text-secondary font-semibold mb-2 line-clamp-1">{project.company}</p>
                   
-                  <p className="text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-2">
+                  <p className="text-xs text-muted-foreground leading-relaxed mb-2 line-clamp-3">
                     {project.description}
                   </p>
-
-                  {/* Key Achievement */}
-                  <div className="flex items-start gap-2 p-2 rounded bg-card/30 border border-primary/10">
-                    <Zap className="w-3 h-3 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-xs text-muted-foreground line-clamp-2">{project.achievements[0]}</span>
-                  </div>
                 </div>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 mt-auto">
                   {project.tech.slice(0, 4).map((tech) => (
                     <Badge 
                       key={tech} 

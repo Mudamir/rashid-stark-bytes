@@ -15,35 +15,35 @@ const achievements: Achievement[] = [
     title: "MCITS Region XI IT Pitching Competition 2025",
     description: "1st Place - The Innovators | Mapúa Malayan Colleges Mindanao",
     year: "2025",
-    imagePlaceholder: "/achievements/mcits-first-place.jpg"
+    imagePlaceholder: "/achievements/mcits-first-place.png"
   },
   {
     icon: Award,
     title: "CCIS MMCM Innovation Pitching Competition",
     description: "1st Place - The Innovators | 2023 CCIS MMCM",
     year: "2023",
-    imagePlaceholder: "/achievements/ccis-first-place.jpg"
+    imagePlaceholder: "/achievements/ccis-first-place.png"
   },
   {
     icon: Award,
     title: "DICT Davao City Pitching Competition 2024",
     description: "1st Place - Mapúa Malayan Colleges Mindanao",
     year: "2024",
-    imagePlaceholder: "/achievements/dict-first-place.jpg"
+    imagePlaceholder: "/achievements/dict-first-place.png"
   },
   {
     icon: Award,
     title: "DICT Regional Startup Pitching Competition 2024",
     description: "1st Runner-Up - Mapúa Malayan Colleges Mindanao",
     year: "2024",
-    imagePlaceholder: "/achievements/dict-regional.jpg"
+    imagePlaceholder: "/achievements/dict-regional.png"
   },
   {
     icon: Award,
     title: "DICT Davao City Pitching Competition 2024",
     description: "3rd Place - Mapúa Malayan Colleges Mindanao",
     year: "2024",
-    imagePlaceholder: "/achievements/dict-third-place.jpg"
+    imagePlaceholder: "/achievements/dict-third-place.png"
   },
   {
     icon: Users,
@@ -57,22 +57,37 @@ const achievements: Achievement[] = [
     title: "BLOCKCHAIN PORTFOLIO USING CANVA 2ND PROGRAM DIRECTOR",
     description: "October 15, 2024 (Davao City Philippines) | Mapúa Malayan Colleges Mindanao",
     year: "2024",
-    imagePlaceholder: "/achievements/blockchain-director.jpg"
+    imagePlaceholder: "/achievements/blockchain-director.png"
   },
   {
     icon: Users,
     title: "DEVELOPING E-PORTFOLIO USING CANVA TOPIC SPEAKER",
     description: "October 24, 2024 (Mapúa Malayan Colleges Mindanao)",
     year: "2024",
-    imagePlaceholder: "/achievements/canva-speaker.jpg"
+    imagePlaceholder: "/achievements/canva-speaker.png"
   },
   {
     icon: Users,
     title: "GEEKS ON A BEACH 7TH ROOM MANAGER",
     description: "November 15-16, 2024 (Cebu City Philippines)",
     year: "2024",
-    imagePlaceholder: "/achievements/geeks-manager.jpg"
-  }
+    imagePlaceholder: "/achievements/geeks-manager.png"
+  },
+  {
+    icon: Award,
+    title: "Software Developer",
+    description: "As the UI/UX Designer for the e-NAIS system, I led the user experience and interface design efforts to support CHED RO XI’s digital transformation initiative. The system was developed to automate and streamline the NSTP serial number application and issuance process for higher education institutions across the region.",
+    year: "2025",
+    imagePlaceholder: "/achievements/dict-dev.png"
+  },
+  {
+    icon: Users,
+    title: "API - Creatives Head",
+    description: "Association of Proactive Innovators | August 2024 - August 2025",
+    year: "2024",
+    imagePlaceholder: "/achievements/api-head.png"
+  },
+
 ];
 
 const Achievements = () => {

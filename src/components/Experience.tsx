@@ -10,6 +10,7 @@ interface ExperienceItem {
   period: string;
   description: string[];
   skills?: string[];
+  logo: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -23,7 +24,8 @@ const experiences: ExperienceItem[] = [
       "Developed and deployed the CHEDRO XI eNSTP Serial Number Application and Issuance System, a full-scale web solution that streamlined their digital operations",
       "Recognized with a Plaque of Recognition from the CHEDRO XI (2025) for outstanding innovation and impact in higher education digitalization"
     ],
-    skills: ["Java", "OOP", "UI/UX Design", "System Design", "Backend Development"]
+    skills: ["Java", "OOP", "UI/UX Design", "System Design", "Backend Development"],
+    logo: "/Experience/ched-logo.jpg"
   },
   {
     type: "work",
@@ -34,7 +36,8 @@ const experiences: ExperienceItem[] = [
     description: [
       "Transformed client ideas into compelling visual designs that boosted brand visibility, enhanced digital presence, and supported successful marketing campaigns across social media and print platforms"
     ],
-    skills: ["Figma", "Adobe Photoshop", "Canva", "Brand Strategy", "Social Media Marketing"]
+    skills: ["Figma", "Adobe Photoshop", "Canva", "Brand Strategy", "Social Media Marketing"],
+    logo: "/Experience/urbandoll-logo.jpg"
   },
   {
     type: "work",
@@ -45,7 +48,8 @@ const experiences: ExperienceItem[] = [
     description: [
       "Led digital branding and content strategy by managing social media platforms, creating engaging campaigns, and directing creative visuals that strengthened the company's online presence and customer engagement"
     ],
-    skills: ["Social Media Management", "Content Strategy", "Creative Direction", "Digital Marketing", "Campaign Management"]
+    skills: ["Social Media Management", "Content Strategy", "Creative Direction", "Digital Marketing", "Campaign Management"],
+    logo: "/Experience/linetech-logo.png"
   },
   {
     type: "work",
@@ -56,7 +60,8 @@ const experiences: ExperienceItem[] = [
     description: [
       "Designed and implemented software solutions for rental management, client scheduling, and record-keeping, while developing secure databases and automating workflows to optimize real estate operations"
     ],
-    skills: ["Python", "Django", "Database Management", "Automation", "Backend Development"]
+    skills: ["Python", "Django", "Database Management", "Automation", "Backend Development"],
+    logo: "/Experience/ferrerdeco-logo.png"
   },
   {
     type: "education",
@@ -69,7 +74,8 @@ const experiences: ExperienceItem[] = [
       "Active member of DICE organization as Creatives and Marketing Head",
       "Multiple research publications and competition wins in AI/ML and pitching competitions"
     ],
-    skills: ["AI/ML", "Software Engineering", "UI/UX Design", "Research"]
+    skills: ["AI/ML", "Software Engineering", "UI/UX Design", "Research"],
+    logo: "/Experience/mcm-logo.png"
   }
 ];
 
@@ -112,7 +118,7 @@ const Experience = () => {
               <Card 
                 key={index}
                 className={`relative p-5 md:p-8 bg-card/50 backdrop-blur border-2 hover-stark transition-all duration-500 touch-feedback group ${
-                  isEducation ? 'border-primary/30 hover:border-primary/60' : 'border-accent/30 hover:border-accent/60'
+                  isEducation ? 'border-accent/30 hover:border-accent/60' : 'border-primary/30 hover:border-primary/60'
                 }`}
                 style={{
                   animationDelay: `${index * 0.1}s`
@@ -120,29 +126,42 @@ const Experience = () => {
               >
                 {/* Arc Reactor Glow */}
                 <div className={`absolute top-0 right-0 w-32 h-32 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl rounded-full -translate-y-16 translate-x-16 ${
-                  isEducation ? 'bg-primary/30' : 'bg-accent/30'
+                  isEducation ? 'bg-accent/30' : 'bg-primary/30'
                 }`}></div>
 
                 {/* Holographic Scan Line */}
                 <div className={`absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity ${
-                  isEducation ? 'bg-gradient-to-r from-transparent via-primary to-transparent' : 'bg-gradient-to-r from-transparent via-accent to-transparent'
+                  isEducation ? 'bg-gradient-to-r from-transparent via-accent to-transparent' : 'bg-gradient-to-r from-transparent via-primary to-transparent'
                 }`}></div>
 
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                     <div className="flex items-start gap-4">
-                      <div className={`relative p-3 rounded-lg flex-shrink-0 ${
-                        isEducation ? 'bg-primary/10 text-primary' : 'bg-accent/10 text-accent'
-                      }`}>
+                      {/* Company/Institution Logo */}
+                      <div className={`relative rounded-lg flex-shrink-0 overflow-hidden border-2 ${
+                        isEducation ? 'border-accent/30' : 'border-primary/30'
+                      } w-14 h-14 md:w-16 md:h-16`}>
                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity blur-lg ${
-                          isEducation ? 'bg-primary/30' : 'bg-accent/30'
+                          isEducation ? 'bg-accent/30' : 'bg-primary/30'
                         }`}></div>
-                        <Icon className="w-6 h-6 md:w-7 md:h-7 relative z-10" />
+                        <img 
+                          src={item.logo} 
+                          alt={`${item.organization} logo`}
+                          className="w-full h-full object-cover relative z-10 group-hover:scale-110 transition-transform duration-300"
+                        />
                       </div>
+                      
+                      {/* Category Icon Badge */}
+                      <div className={`absolute top-0 right-0 p-2 rounded-lg ${
+                        isEducation ? 'bg-accent/10 text-accent' : 'bg-primary/10 text-primary'
+                      }`}>
+                        <Icon className="w-4 h-4 md:w-5 md:h-5" />
+                      </div>
+                      
                       <div className="flex-1">
                         <h3 className={`text-lg md:text-xl lg:text-2xl font-bold mb-1 group-hover:transition-colors ${
-                          isEducation ? 'text-foreground group-hover:text-primary' : 'text-foreground group-hover:text-accent'
+                          isEducation ? 'text-foreground group-hover:text-accent' : 'text-foreground group-hover:text-primary'
                         }`}>
                           {item.title}
                         </h3>
@@ -168,7 +187,7 @@ const Experience = () => {
                     {item.description.map((desc, i) => (
                       <li key={i} className="text-sm md:text-base text-muted-foreground leading-relaxed flex items-start gap-2">
                         <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                          isEducation ? 'bg-primary' : 'bg-accent'
+                          isEducation ? 'bg-accent' : 'bg-primary'
                         }`}></span>
                         <span>{desc}</span>
                       </li>
@@ -183,7 +202,7 @@ const Experience = () => {
                           key={skill}
                           variant="outline"
                           className={`text-xs hover-stark ${
-                            isEducation ? 'bg-primary/10 text-primary border-primary/30' : 'bg-accent/10 text-accent border-accent/30'
+                            isEducation ? 'bg-accent/10 text-accent border-accent/30' : 'bg-primary/10 text-primary border-primary/30'
                           }`}
                         >
                           {skill}

@@ -54,21 +54,21 @@ const Hero = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight">
-            <span className="gradient-text glow-text-blue">Rashid S. Comon</span>
+            <span className="gradient-text">Rashid S. Comon</span>
           </h1>
           
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary"></div>
-            <Zap className="w-6 h-6 text-secondary animate-glow-pulse" />
+            <Zap className="w-3 h-3 text-secondary animate-glow-pulse" />
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary"></div>
           </div>
           
           <h2 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold text-foreground/90 px-4">
-            <span className="text-primary glow-text-blue">AI Engineer</span>{" "}
+            <span className="text-primary">AI Engineer</span>{" "}
             <span className="text-foreground/60">×</span>{" "}
-            <span className="gradient-gold glow-text-gold">UI/UX Designer</span>{" "}
+            <span className="gradient-gold">UI/UX Designer</span>{" "}
             <span className="text-foreground/60">×</span>{" "}
-            <span className="text-accent glow-text-red">Software Engineer</span>
+            <span className="text-accent">Software Engineer</span>
           </h2>
           
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
@@ -81,17 +81,17 @@ const Hero = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8 px-4">
             <div className="relative flex flex-col items-center gap-2 p-4 rounded-lg bg-card/30 border border-primary/20 backdrop-blur-sm hover-stark group">
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-              <span className="text-2xl md:text-3xl font-black text-primary relative z-10">5+</span>
+              <span className="text-2xl md:text-3xl font-black text-primary relative z-10">3 +</span>
               <span className="text-xs md:text-sm text-muted-foreground text-center relative z-10">Years Experience</span>
             </div>
             <div className="relative flex flex-col items-center gap-2 p-4 rounded-lg bg-card/30 border border-secondary/20 backdrop-blur-sm hover-stark group">
               <div className="absolute inset-0 bg-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-              <span className="text-2xl md:text-3xl font-black text-secondary relative z-10">6</span>
-              <span className="text-xs md:text-sm text-muted-foreground text-center relative z-10">AI/ML Projects</span>
+              <span className="text-2xl md:text-3xl font-black text-secondary relative z-10">10 +</span>
+              <span className="text-xs md:text-sm text-muted-foreground text-center relative z-10">Projects</span>
             </div>
             <div className="relative flex flex-col items-center gap-2 p-4 rounded-lg bg-card/30 border border-accent/20 backdrop-blur-sm hover-stark group">
               <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-              <span className="text-2xl md:text-3xl font-black text-accent relative z-10">4+</span>
+              <span className="text-2xl md:text-3xl font-black text-accent relative z-10">30 +</span>
               <span className="text-xs md:text-sm text-muted-foreground text-center relative z-10">Awards & Recognition</span>
             </div>
           </div>
@@ -100,7 +100,7 @@ const Hero = () => {
             <Button 
               size="lg"
               onClick={scrollToProjects}
-              className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 md:px-8 py-5 md:py-6 text-base md:text-lg glow-blue hover-glow touch-feedback w-full sm:w-auto repulsor overflow-hidden"
+              className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 md:px-8 py-5 md:py-6 text-base md:text-lg  hover-glow touch-feedback w-full sm:w-auto repulsor overflow-hidden"
             >
               <span className="relative z-10">Explore My Work</span>
             </Button>

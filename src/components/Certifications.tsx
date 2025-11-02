@@ -11,6 +11,7 @@ interface Certification {
   icon: typeof GraduationCap;
   color: "primary" | "secondary" | "accent";
   verifyUrl?: string;
+  logo: string;
 }
 
 const certifications: Certification[] = [
@@ -22,7 +23,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://coursera.org/verify/OS4RPIDJGPYI"
+    verifyUrl: "https://coursera.org/verify/OS4RPIDJGPYI",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
   },
   {
     id: "2",
@@ -31,7 +33,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://coursera.org/verify/T7FTQ58WP3Y4"
+    verifyUrl: "https://coursera.org/verify/T7FTQ58WP3Y4",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "3",
@@ -39,7 +42,8 @@ const certifications: Certification[] = [
     provider: "Google",
     category: "Data Science",
     icon: Database,
-    color: "primary"
+    color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "4",
@@ -47,7 +51,8 @@ const certifications: Certification[] = [
     provider: "Google",
     category: "Data Science",
     icon: Database,
-    color: "primary"
+    color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "5",
@@ -56,7 +61,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://coursera.org/verify/DBDTKNB99MX6"
+    verifyUrl: "https://coursera.org/verify/DBDTKNB99MX6",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "6",
@@ -65,7 +71,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://coursera.org/verify/QYPHLL9DF9WZ"
+    verifyUrl: "https://coursera.org/verify/QYPHLL9DF9WZ",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "7",
@@ -74,7 +81,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://coursera.org/verify/U49G8RGFT46T"
+    verifyUrl: "https://coursera.org/verify/U49G8RGFT46T",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "8",
@@ -83,7 +91,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://coursera.org/verify/CPHVBDCPENLS"
+    verifyUrl: "https://coursera.org/verify/CPHVBDCPENLS",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "9",
@@ -92,7 +101,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Database,
     color: "primary",
-    verifyUrl: "https://www.coursera.org/account/accomplishments/verify/EVX4RDYF3CL4"
+    verifyUrl: "https://www.coursera.org/account/accomplishments/verify/EVX4RDYF3CL4",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "10",
@@ -101,7 +111,8 @@ const certifications: Certification[] = [
     category: "Data Science",
     icon: Award,
     color: "primary",
-    verifyUrl: "https://www.credly.com/earner/earned/badge/017bfb80-2a57-423b-8725-3bbb6f1a58d6"
+    verifyUrl: "https://www.credly.com/earner/earned/badge/017bfb80-2a57-423b-8725-3bbb6f1a58d6",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   
   // Object-Oriented Programming
@@ -112,7 +123,8 @@ const certifications: Certification[] = [
     category: "Programming",
     icon: Code,
     color: "accent",
-    verifyUrl: "https://coursera.org/verify/XQRBCZA7UVDS"
+    verifyUrl: "https://coursera.org/verify/XQRBCZA7UVDS",
+    logo: "https://via.placeholder.com/100x40/1e40af/ffffff?text=OHU"
   },
   {
     id: "12",
@@ -121,7 +133,8 @@ const certifications: Certification[] = [
     category: "Programming",
     icon: Code,
     color: "accent",
-    verifyUrl: "https://www.linkedin.com/learning/certificates/308734a1952ad228db7c9e0b999a6ab34b6797e612d0b8e91e1de63b996ab3fb"
+    verifyUrl: "https://www.linkedin.com/learning/certificates/308734a1952ad228db7c9e0b999a6ab34b6797e612d0b8e91e1de63b996ab3fb",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
   },
   {
     id: "13",
@@ -130,7 +143,8 @@ const certifications: Certification[] = [
     category: "Programming",
     icon: Code,
     color: "accent",
-    verifyUrl: "https://www.linkedin.com/learning/certificates/c4e3a9ab4b2373bf3210b756931c006961df7283c2198e4fbfe5ef4ea088107a"
+    verifyUrl: "https://www.linkedin.com/learning/certificates/c4e3a9ab4b2373bf3210b756931c006961df7283c2198e4fbfe5ef4ea088107a",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
   },
   {
     id: "14",
@@ -139,7 +153,8 @@ const certifications: Certification[] = [
     category: "Programming",
     icon: Code,
     color: "accent",
-    verifyUrl: "https://coursera.org/verify/PK8QW7F6CCCG"
+    verifyUrl: "https://coursera.org/verify/PK8QW7F6CCCG",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Coursera_logo.PNG"
   },
   
   // Social Media Management
@@ -150,6 +165,7 @@ const certifications: Certification[] = [
     category: "Social Media",
     icon: Share2,
     color: "secondary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     verifyUrl: "https://coursera.org/verify/9C2GFWC46KDW"
   },
   {
@@ -159,6 +175,7 @@ const certifications: Certification[] = [
     category: "Social Media",
     icon: Share2,
     color: "secondary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     verifyUrl: "https://coursera.org/share/90f52102ed904934d76fbf0f7468f8dd"
   },
   {
@@ -168,6 +185,7 @@ const certifications: Certification[] = [
     category: "Social Media",
     icon: Share2,
     color: "secondary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     verifyUrl: "https://coursera.org/verify/GVZARZLHF6ZQ"
   },
   {
@@ -177,6 +195,7 @@ const certifications: Certification[] = [
     category: "Social Media",
     icon: Share2,
     color: "secondary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     verifyUrl: "https://www.coursera.org/account/accomplishments/verify/EHQY6ZGVMTXD"
   },
   {
@@ -186,6 +205,7 @@ const certifications: Certification[] = [
     category: "Social Media",
     icon: Share2,
     color: "secondary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg",
     verifyUrl: "https://www.coursera.org/account/accomplishments/verify/LZSEJLU27Y5D"
   },
   
@@ -196,7 +216,8 @@ const certifications: Certification[] = [
     provider: "Google",
     category: "Cybersecurity",
     icon: Shield,
-    color: "accent"
+    color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
   },
   {
     id: "21",
@@ -205,6 +226,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/7GMG44Y52H9N"
   },
   {
@@ -214,6 +236,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/T9KM5TW6P2P8"
   },
   {
@@ -223,6 +246,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/2GQJAUQ52BP3"
   },
   {
@@ -232,6 +256,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/CNTHGVDLZV5G"
   },
   {
@@ -241,6 +266,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
     verifyUrl: "https://coursera.org/verify/FGZQWN255NLA"
   },
   {
@@ -250,6 +276,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
     verifyUrl: "https://www.credly.com/earner/earned/badge/b66ea8cb-cade-47ad-ae1b-b721dbd7838c"
   },
   {
@@ -259,6 +286,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/180557e54a6e6e1f47efcef60634063aa1ab9f6ff2f9488034e716115a2a0b3c"
   },
   {
@@ -268,6 +296,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/af5a53bdcba9626e48c35fe55f2760b3dc017b48a86a6885f71348acb9b09542"
   },
   {
@@ -277,6 +306,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/4KYCKRLSVLCW"
   },
   {
@@ -286,6 +316,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/5BDRF2T3YTXA"
   },
   {
@@ -295,6 +326,7 @@ const certifications: Certification[] = [
     category: "Social Media",
     icon: Share2,
     color: "secondary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/0a9fdd222458d5970906cc52a9177869dbd7d15b889a73fb814d2664712bb1dd"
   },
   {
@@ -304,6 +336,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/MRH9ZQLTR79N"
   },
   {
@@ -313,6 +346,7 @@ const certifications: Certification[] = [
     category: "Cybersecurity",
     icon: Shield,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
     verifyUrl: "https://coursera.org/verify/TD9EZDMMHKWV"
   },
   
@@ -324,6 +358,7 @@ const certifications: Certification[] = [
     category: "Microsoft Excel",
     icon: Database,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
     verifyUrl: "https://www.certiport.com/portal/pages/credentialverification.aspx"
   },
   {
@@ -333,6 +368,7 @@ const certifications: Certification[] = [
     category: "Microsoft Excel",
     icon: Database,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/314933543ce22828b54b4c5558979aa9140a7cd0b6134530e515ea549137679c"
   },
   
@@ -344,6 +380,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://coursera.org/verify/EF6ZV879BHE2"
   },
   {
@@ -353,6 +390,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/04d106d978cabd940a4d4d0d47b10619daf45b39feada1d8dd9fb46e7e1592c7"
   },
   {
@@ -361,7 +399,8 @@ const certifications: Certification[] = [
     provider: "LinkedIn",
     category: "AI/ML",
     icon: Brain,
-    color: "primary"
+    color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
   },
   {
     id: "39",
@@ -369,7 +408,8 @@ const certifications: Certification[] = [
     provider: "LinkedIn",
     category: "AI/ML",
     icon: Brain,
-    color: "primary"
+    color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
   },
   {
     id: "40",
@@ -378,6 +418,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/a621c7920921ad383557270b83d9b6c1926c5bb96187e789a503e390e9bc7f98"
   },
   {
@@ -387,6 +428,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/a621c7920921ad383557270b83d9b6c1926c5bb96187e789a503e390e9bc7f98"
   },
   {
@@ -396,6 +438,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/2d0dcbab939d128b454d3564e4262c6b8b82a79b599cd2f9cf3de53035099e70"
   },
   {
@@ -405,6 +448,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/8131cd88f1e1c9a9576f43af03c71524aa49387aee71362bc106e1c4361be7c9"
   },
   {
@@ -414,6 +458,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/dd41c1b9f9b2472519dbdf74aba3af2dbdafdaedfa5fd529573172c2e1197da8"
   },
   {
@@ -422,7 +467,8 @@ const certifications: Certification[] = [
     provider: "LinkedIn",
     category: "AI/ML",
     icon: Brain,
-    color: "primary"
+    color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
   },
   {
     id: "46",
@@ -431,6 +477,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/b5ee75f7ef15f1942b5c78fb1374dd9c62376afc366e855522d557c9313d0258"
   },
   {
@@ -439,7 +486,8 @@ const certifications: Certification[] = [
     provider: "LinkedIn",
     category: "AI/ML",
     icon: Brain,
-    color: "primary"
+    color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
   },
   {
     id: "48",
@@ -448,6 +496,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/fd297910d9a8e6b09c57dce58338f7c1bc3199ba45ea90e1fa17d23e9aaa61c9"
   },
   {
@@ -457,6 +506,7 @@ const certifications: Certification[] = [
     category: "AI/ML",
     icon: Brain,
     color: "primary",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/09c38c2f8edeb85a1b92a841923d9a0cce0896192aed95f1c497cf5a99b13200"
   },
   
@@ -468,6 +518,7 @@ const certifications: Certification[] = [
     category: "Networks",
     icon: Network,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/e4291ffd094a901235b59fd779db478fb4d3b535df1b84123570463504253285"
   },
   {
@@ -477,6 +528,7 @@ const certifications: Certification[] = [
     category: "Networks",
     icon: Network,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/e4291ffd094a901235b59fd779db478fb4d3b535df1b84123570463504253285"
   },
   {
@@ -486,6 +538,7 @@ const certifications: Certification[] = [
     category: "Networks",
     icon: Network,
     color: "accent",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png",
     verifyUrl: "https://www.linkedin.com/learning/certificates/4ef591b40d98b7a2804fd67cc218e90f02125643b636d6b89ea735f644ced57e"
   }
 ];
@@ -588,15 +641,22 @@ const Certifications = () => {
 
                 {/* Content */}
                 <div className="relative p-5 md:p-6">
-                  {/* Icon Badge */}
-                  <div className="mb-4 inline-flex">
+                  {/* Company Logo */}
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className="h-10 flex items-center">
+                      <img 
+                        src={cert.logo} 
+                        alt={`${cert.provider} logo`}
+                        className="h-8 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </div>
                     <div className={`
-                      p-3 rounded-xl transition-all duration-300
-                      ${cert.color === 'primary' ? 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-110' : ''}
-                      ${cert.color === 'secondary' ? 'bg-secondary/10 text-secondary group-hover:bg-secondary/20 group-hover:scale-110' : ''}
-                      ${cert.color === 'accent' ? 'bg-accent/10 text-accent group-hover:bg-accent/20 group-hover:scale-110' : ''}
+                      p-2 rounded-lg transition-all duration-300
+                      ${cert.color === 'primary' ? 'bg-primary/10 text-primary' : ''}
+                      ${cert.color === 'secondary' ? 'bg-secondary/10 text-secondary' : ''}
+                      ${cert.color === 'accent' ? 'bg-accent/10 text-accent' : ''}
                     `}>
-                      <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                      <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
