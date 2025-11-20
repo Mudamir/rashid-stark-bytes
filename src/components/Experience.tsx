@@ -16,51 +16,77 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     type: "work",
+    title: "UI/UX Designer / Junior AI Engineer",
+    organization: "Creative Score",
+    location: "(London, UK) - Remote",
+    period: "Sept 2025 - Present",
+    description: [
+      "Developed innovative, user-focused software that improved customer experience and contributed to higher marketing conversion rates.",
+      "Implemented modern AI models that automated key workflows, boosted overall system efficiency, and lowered operational expenses."
+    ],
+    skills: ["UI/UX Design", "AI Engineering", "Workflow Automation", "User Experience", "Marketing","Brand Strategy","Canva","React"],
+    logo: "/Experience/creativescore-logo.jpg"
+  },
+  {
+    type: "work",
+    title: "Backend Developer - AI Engineer",
+    organization: "Mapua Malayan Colleges Mindanao",
+    location: "(Davao City, Philippines) - Remote",
+    period: "Aug 2025 - Oct 2025",
+    description: [
+      "Integrated and experimented with local LLMs under hardware constraints, leveraging a RAG framework to customize an AI-powered tutoring system for board exam review.",
+      "Provided highly personalized and accurate guidance, supporting the institution’s mission to enhance student readiness and learning outcomes."
+    ],
+    skills: ["Local LLMs", "RAG Framework", "Backend Development", "AI Tutoring Systems","Python", "Supabase","Mysql"],
+    logo: "/Experience/mcm-logo.png"
+  },
+  {
+    type: "work",
     title: "Student Software Developer",
     organization: "Commission on Higher Education Region XI",
-    location: "Davao City, Philippines",
-    period: "Mar 2025 - Aug 2025",
+    location: "(Davao City, Philippines) - Hybrid",
+    period: "Jan 2025 - Aug 2025",
     description: [
       "Developed and deployed the CHEDRO XI eNSTP Serial Number Application and Issuance System, a full-scale web solution that streamlined their digital operations",
       "Recognized with a Plaque of Recognition from the CHEDRO XI (2025) for outstanding innovation and impact in higher education digitalization"
     ],
-    skills: ["Java", "OOP", "UI/UX Design", "System Design", "Backend Development"],
+    skills: ["Python", "OOP", "UI/UX Design", "System Design", "Backend Development", "Figma" , "Canva", "React", "Tailwind CSS"],
     logo: "/Experience/ched-logo.jpg"
   },
   {
     type: "work",
-    title: "Graphic Designer (Freelance)",
-    organization: "Urban doll (Oregon, Northwest US)",
-    location: "Remote",
-    period: "Jan 2022 - Dec 2023",
+    title: "UI/UX Designer",
+    organization: "Kawaii Beach Resort",
+    location: "(Samal, Davao del Norte, Philippines) - Hybrid",
+    period: "Mar 2023 - Aug 2023",
     description: [
-      "Transformed client ideas into compelling visual designs that boosted brand visibility, enhanced digital presence, and supported successful marketing campaigns across social media and print platforms"
+      "Created a modern, user-centered marketing and booking website using Figma, which increased online visibility, strengthened social media presence, and supported more effective marketing campaigns."
     ],
-    skills: ["Figma", "Adobe Photoshop", "Canva", "Brand Strategy", "Social Media Marketing"],
-    logo: "/Experience/urbandoll-logo.jpg"
+    skills: ["Figma", "React", "Tailwind CSS", "Brand Strategy", "Social Media Marketing"],
+    logo: "/Experience/kawaii-logo.jpg"
   },
   {
     type: "work",
     title: "Social Media Manager and Creative Director",
     organization: "Line Tech Marketing Agency",
-    location: "Davao City, Philippines",
+    location: "(Davao City, Philippines) - Freelance",
     period: "Jan 2022 - Dec 2023",
     description: [
       "Led digital branding and content strategy by managing social media platforms, creating engaging campaigns, and directing creative visuals that strengthened the company's online presence and customer engagement"
     ],
-    skills: ["Social Media Management", "Content Strategy", "Creative Direction", "Digital Marketing", "Campaign Management"],
+    skills: ["Social Media Management", "Content Strategy", "Creative Direction", "Digital Marketing", "Canva"],
     logo: "/Experience/linetech-logo.png"
   },
   {
     type: "work",
-    title: "Software Developer",
+    title: "Fullstack Developer",
     organization: "Ferrer Deco Rental Real Estate",
-    location: "Davao City, Philippines",
-    period: "Oct 2021 - Dec 2021",
+    location: "(Davao City, Philippines) - Freelance",
+    period: "Oct 2022 - Dec 2022",
     description: [
       "Designed and implemented software solutions for rental management, client scheduling, and record-keeping, while developing secure databases and automating workflows to optimize real estate operations"
     ],
-    skills: ["Python", "Django", "Database Management", "Automation", "Backend Development"],
+    skills: ["Java", "Django", "Database Management", "Automation", "Backend Development"],
     logo: "/Experience/ferrerdeco-logo.png"
   },
   {
@@ -71,7 +97,6 @@ const experiences: ExperienceItem[] = [
     period: "2021 - Present",
     description: [
       "Senior Computer Science student specializing in AI/ML Engineering, UI/UX Design, and Software Engineering",
-      "Active member of DICE organization as Creatives and Marketing Head",
       "Multiple research publications and competition wins in AI/ML and pitching competitions"
     ],
     skills: ["AI/ML", "Software Engineering", "UI/UX Design", "Research"],

@@ -1,3 +1,12 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/rag/query"
+  to = "/.netlify/functions/rag-query"
+  status = 200
+  force = true

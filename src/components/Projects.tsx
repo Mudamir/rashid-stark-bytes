@@ -9,7 +9,7 @@ interface Project {
   title: string;
   company: string;
   period: string;
-  category: "AI/ML" | "UI/UX" | "Software Engineering" | "Design" | "All";
+  category: "AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design" | "All" | ("AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design")[];
   type: "software" | "research" | "design";
   description: string;
   achievements: string[];
@@ -91,7 +91,7 @@ const projects: Project[] = [
     title: "eNSTP Serial Number System for CHED",
     company: "UI/UX Designer | Software Developer",
     period: "Feb 2025 - Aug 2025",
-    category: "UI/UX",
+    category: ["Software Development", "UI/UX Design"],
     type: "software",
     image: "/projects/enstp-placeholder.png",
     description: "As a software developer, I created a functional and user-friendly event registration system for a regional CHED-based organization using Java and object-oriented design. This project strengthened my skills in planning, design, and debugging while delivering a solution that met the client's needs.",
@@ -101,7 +101,7 @@ const projects: Project[] = [
       "Delivered user-friendly solution meeting client's organizational needs"
     ],
     tech: ["Java", "OOP", "UI/UX Design", "System Design", "Backend Development"],
-    color: "secondary",
+    color: "accent",
     links: {
       github: "https://www.facebook.com/chedroxi/posts/pfbid02YvKWQoxYzxF8pF5ZMn2PmhAWcXkL13aYL5L9K5GkhmUmKuUDyiXzUK82skAqbtx5l?rdid=RKMDmBxxPb6QheEq#"
     }
@@ -111,7 +111,7 @@ const projects: Project[] = [
     title: "Real Estate Management System",
     company: "Ferrer Deco Rental Real Estate",
     period: "Oct 2021 - Dec 2021",
-    category: "Software Engineering",
+    category: "Software Development",
     type: "software",
     image: "/projects/realestate-placeholder.png",
     description: "Designed and implemented comprehensive software solutions for rental management and client operations.",
@@ -131,7 +131,7 @@ const projects: Project[] = [
     title: "Marketing Booking Platform",
     company: "Kawaii Beach Resort in Samal",
     period: "Jan 2022 - Dec 2023",
-    category: "UI/UX",
+    category: "UI/UX Design",
     type: "design",
     image: "/projects/kawaii-placeholder.png",
     description: "Designed and developed a comprehensive booking website with centralized management system and payment integration.",
@@ -141,7 +141,7 @@ const projects: Project[] = [
       "Developed centralized management dashboard"
     ],
     tech: ["Figma", "React", "Tailwind CSS", "Django", "PayMongo", "UI/UX Design"],
-    color: "secondary",
+    color: "accent",
     links: {
       demo: "https://www.figma.com/proto/l1gICqRr1TOVxADAT2ifN9/Kawaii?node-id=1961-7388&t=nl2jRAb8FxLnWdRC-1&scaling=min-zoom&content-scaling=fixed&page-id=143%3A3334&starting-point-node-id=1957%3A6843",
     }
@@ -151,7 +151,7 @@ const projects: Project[] = [
     title: "Brand Identity & Social Media Strategy",
     company: "Urban doll (Oregon, Northwest US)",
     period: "Jan 2022 - Dec 2023",
-    category: "Design",
+    category: "Graphic Design",
     type: "design",
     image: "/projects/urbandoll-placeholder.png",
     description: "Led digital branding and content strategy, managing social media platforms and creating engaging campaigns.",
@@ -230,7 +230,7 @@ const projects: Project[] = [
     title: "Freelance Graphic Design",
     company: "Various Clients",
     period: "Mar 2025 - Aug 2025",
-    category: "Design",
+    category: "Graphic Design",
     type: "design",
     image: "/projects/freelance-placeholder.png",
     description: "Transformed client ideas into compelling visual designs for digital and print platforms.",
@@ -249,7 +249,7 @@ const projects: Project[] = [
     title: "Pawnquest",
     company: "Pitching Competition",
     period: "Mar 2025 - Aug 2025",
-    category: "UI/UX",
+    category: "UI/UX Design",
     type: "design",
     image: "/projects/pawnquest-placeholder.png",
     description: "Transformed  ideas into compelling visual designs for a mobile application.",
@@ -266,13 +266,16 @@ const projects: Project[] = [
 ];
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState<"All" | "AI/ML" | "UI/UX" | "Software Engineering" | "Design">("All");
+      const [activeFilter, setActiveFilter] = useState<"All" | "AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design">("All");
 
-  const filters = ["All", "AI/ML", "UI/UX", "Software Engineering", "Design"];
+  const filters = ["All", "AI/ML", "UI/UX Design", "Software Development", "Graphic Design"];
 
   const filteredProjects = activeFilter === "All" 
     ? projects 
-    : projects.filter(p => p.category === activeFilter);
+    : projects.filter(p => {
+        const categories = Array.isArray(p.category) ? p.category : [p.category];
+        return categories.includes(activeFilter as any);
+      });
 
   return (
     <section id="projects" className="py-16 md:py-32 bg-card/20 relative overflow-hidden">
@@ -338,122 +341,122 @@ const Projects = () => {
         </div>
 
         {/* Uniform Grid Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {filteredProjects.map((project, index) => (
             <Card
               key={project.id}
-              className={`relative overflow-hidden bg-card/50 backdrop-blur border-2 hover-stark transition-all duration-500 touch-feedback group animate-fade-in-up flex flex-col ${
-                project.color === 'primary' ? 'border-primary/30 hover:border-primary/60' :
-                project.color === 'secondary' ? 'border-secondary/30 hover:border-secondary/60' :
-                'border-accent/30 hover:border-accent/60'
+              className={`group relative overflow-hidden rounded-xl bg-background/60 backdrop-blur-xl border-2 transition-all duration-300 hover:-translate-y-1 flex flex-col animate-fade-in-up ${
+                project.color === 'primary' 
+                  ? 'border-primary/30 hover:border-primary/50' 
+                  : project.color === 'secondary' 
+                  ? 'border-secondary/30 hover:border-secondary/50'
+                  : 'border-accent/30 hover:border-accent/50'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Arc Reactor Corner Glow */}
-              <div className={`absolute top-0 right-0 w-24 h-24 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl rounded-full -translate-y-12 translate-x-12 ${
-                project.color === 'primary' ? 'bg-primary/30' :
-                project.color === 'secondary' ? 'bg-secondary/30' :
-                'bg-accent/30'
-              }`}></div>
-
-              {/* Holographic Scan Line */}
-              <div className={`absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity animate-scan ${
-                project.color === 'primary' ? 'bg-gradient-to-r from-transparent via-primary to-transparent' :
-                project.color === 'secondary' ? 'bg-gradient-to-r from-transparent via-secondary to-transparent' :
-                'bg-gradient-to-r from-transparent via-accent to-transparent'
-              }`}></div>
 
               {/* Project Image / Research Visual */}
-              <div className={`relative h-40 overflow-hidden bg-gradient-to-br ${
-                project.color === 'primary' ? 'from-primary/20 to-primary/5' :
-                project.color === 'secondary' ? 'from-secondary/20 to-secondary/5' :
-                'from-accent/20 to-accent/5'
+              <div className={`relative h-48 overflow-hidden ${
+                project.color === 'primary' ? 'bg-gradient-to-br from-primary/10 to-background' :
+                project.color === 'secondary' ? 'bg-gradient-to-br from-secondary/10 to-background' :
+                'bg-gradient-to-br from-accent/10 to-background'
               }`}>
                 {project.image ? (
                   <>
-                    {/* Actual Image for Software/Design Projects */}
                     <img 
                       src={project.image} 
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';
                       }}
                     />
+                    {/* Darker overlay for better text visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-background/30"></div>
                   </>
                 ) : (
-                  <>
-                    {/* Research Paper Visual */}
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-                      <FileText className={`w-16 h-16 ${
-                        project.color === 'primary' ? 'text-primary' :
-                        project.color === 'secondary' ? 'text-secondary' :
-                        'text-accent'
-                      } opacity-20`} />
-                      <span className="text-xs font-mono text-muted-foreground/50">RESEARCH PAPER</span>
-                    </div>
-                  </>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+                    <FileText className={`w-16 h-16 ${
+                      project.color === 'primary' ? 'text-primary' :
+                      project.color === 'secondary' ? 'text-secondary' :
+                      'text-accent'
+                    } opacity-30`} />
+                    <span className="text-xs font-mono tracking-wider text-muted-foreground">RESEARCH PAPER</span>
+                  </div>
                 )}
                 
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent"></div>
-                
-                {/* Type & Category badges */}
-                <div className="absolute bottom-2 left-2 right-2 flex gap-2">
-                  <Badge 
-                    className={`text-xs font-mono ${
-                      project.color === 'primary' ? 'bg-primary/20 text-primary border-primary/30' :
-                      project.color === 'secondary' ? 'bg-secondary/20 text-secondary border-secondary/30' :
-                      'bg-accent/20 text-accent border-accent/30'
-                    }`}
-                  >
-                    {project.category}
-                  </Badge>
-                  {project.type === 'research' && (
-                    <Badge className="text-xs font-mono bg-accent/20 text-accent border-accent/30">
-                      Research
+                {/* Category badges - moved to bottom for better visibility */}
+                <div className="absolute bottom-3 left-3 right-3 flex gap-2 flex-wrap">
+                  {Array.isArray(project.category) ? (
+                    project.category.map((cat, idx) => (
+                      <Badge 
+                        key={idx}
+                        className={`text-[10px] font-medium backdrop-blur-md shadow-lg ${
+                          project.color === 'primary' ? 'bg-primary/90 text-primary-foreground border-primary' :
+                          project.color === 'secondary' ? 'bg-secondary/90 text-secondary-foreground border-secondary' :
+                          'bg-accent/90 text-accent-foreground border-accent'
+                        }`}
+                      >
+                        {cat}
+                      </Badge>
+                    ))
+                  ) : (
+                    <Badge 
+                      className={`text-[10px] font-medium backdrop-blur-md shadow-lg ${
+                        project.color === 'primary' ? 'bg-primary/90 text-primary-foreground border-primary' :
+                        project.color === 'secondary' ? 'bg-secondary/90 text-secondary-foreground border-secondary' :
+                        'bg-accent/90 text-accent-foreground border-accent'
+                      }`}
+                    >
+                      {project.category}
                     </Badge>
                   )}
                 </div>
               </div>
 
-              <div className="p-4 md:p-5 space-y-2 md:space-y-3 relative z-10 flex flex-col flex-1">
+              <div className="p-5 md:p-6 space-y-4 relative z-10 flex flex-col flex-1">
                 {/* Header */}
-                <div className="flex-1 overflow-hidden">
-                  <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-xs text-muted-foreground font-mono">{project.period}</span>
-                  </div>
+                <div className="flex-1 space-y-3">
+                  {/* Period */}
+                  <span className="text-xs text-muted-foreground">{project.period}</span>
                   
-                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                  {/* Title */}
+                  <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">
                     {project.title}
                   </h3>
                   
-                  <p className="text-xs md:text-sm text-secondary font-semibold mb-2 line-clamp-1">{project.company}</p>
+                  {/* Company */}
+                  <p className={`text-sm font-medium ${
+                    project.color === 'primary' ? 'text-primary' :
+                    project.color === 'secondary' ? 'text-secondary' :
+                    'text-accent'
+                  }`}>{project.company}</p>
                   
-                  <p className="text-xs text-muted-foreground leading-relaxed mb-2 line-clamp-3">
+                  {/* Description */}
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                     {project.description}
                   </p>
                 </div>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-1.5 mt-auto">
+                <div className="flex flex-wrap gap-2">
                   {project.tech.slice(0, 4).map((tech) => (
                     <Badge 
                       key={tech} 
                       variant="outline"
-                      className="text-xs bg-background/50 hover-stark"
+                      className="text-xs border-border/50 hover:border-border transition-colors"
                     >
                       {tech}
                     </Badge>
                   ))}
                   {project.tech.length > 4 && (
-                    <Badge variant="outline" className="text-xs bg-background/50">
+                    <Badge variant="outline" className="text-xs border-border/50">
                       +{project.tech.length - 4}
                     </Badge>
                   )}
                 </div>
 
-                {/* Links */}
+                {/* Action Buttons */}
                 {project.links && Object.keys(project.links).length > 0 && (
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.links.github && (
@@ -461,15 +464,17 @@ const Projects = () => {
                         asChild
                         size="sm"
                         variant="outline"
-                        className={`relative text-xs hover-stark repulsor overflow-hidden flex-1 ${
-                          project.color === 'primary' ? 'border-primary/30 text-primary hover:bg-primary/10' :
-                          project.color === 'secondary' ? 'border-secondary/30 text-secondary hover:bg-secondary/10' :
-                          'border-accent/30 text-accent hover:bg-accent/10'
+                        className={`relative flex-1 min-w-[100px] text-xs transition-all duration-300 ${
+                          project.color === 'primary' 
+                            ? 'border-primary/40 text-primary hover:bg-primary/10 hover:border-primary' 
+                            : project.color === 'secondary'
+                            ? 'border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary'
+                            : 'border-accent/40 text-accent hover:bg-accent/10 hover:border-accent'
                         }`}
                       >
-                        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1">
-                          <Github className="w-3 h-3" />
-                          <span className="relative z-10">Code</span>
+                        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          <Github className="w-3.5 h-3.5" />
+                          <span>Code</span>
                         </a>
                       </Button>
                     )}
@@ -478,15 +483,17 @@ const Projects = () => {
                         asChild
                         size="sm"
                         variant="outline"
-                        className={`relative text-xs hover-stark repulsor overflow-hidden flex-1 ${
-                          project.color === 'primary' ? 'border-primary/30 text-primary hover:bg-primary/10' :
-                          project.color === 'secondary' ? 'border-secondary/30 text-secondary hover:bg-secondary/10' :
-                          'border-accent/30 text-accent hover:bg-accent/10'
+                        className={`relative flex-1 min-w-[100px] text-xs transition-all duration-300 ${
+                          project.color === 'primary' 
+                            ? 'border-primary/40 text-primary hover:bg-primary/10 hover:border-primary' 
+                            : project.color === 'secondary'
+                            ? 'border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary'
+                            : 'border-accent/40 text-accent hover:bg-accent/10 hover:border-accent'
                         }`}
                       >
-                        <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1">
-                          <ExternalLink className="w-3 h-3" />
-                          <span className="relative z-10">Demo</span>
+                        <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          <ExternalLink className="w-3.5 h-3.5" />
+                          <span>Demo</span>
                         </a>
                       </Button>
                     )}
@@ -495,15 +502,17 @@ const Projects = () => {
                         asChild
                         size="sm"
                         variant="outline"
-                        className={`relative text-xs hover-stark repulsor overflow-hidden flex-1 ${
-                          project.color === 'primary' ? 'border-primary/30 text-primary hover:bg-primary/10' :
-                          project.color === 'secondary' ? 'border-secondary/30 text-secondary hover:bg-secondary/10' :
-                          'border-accent/30 text-accent hover:bg-accent/10'
+                        className={`relative flex-1 min-w-[100px] text-xs transition-all duration-300 ${
+                          project.color === 'primary' 
+                            ? 'border-primary/40 text-primary hover:bg-primary/10 hover:border-primary' 
+                            : project.color === 'secondary'
+                            ? 'border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary'
+                            : 'border-accent/40 text-accent hover:bg-accent/10 hover:border-accent'
                         }`}
                       >
-                        <a href={project.links.paper} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1">
-                          <FileText className="w-3 h-3" />
-                          <span className="relative z-10">Paper</span>
+                        <a href={project.links.paper} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          <FileText className="w-3.5 h-3.5" />
+                          <span>Paper</span>
                         </a>
                       </Button>
                     )}

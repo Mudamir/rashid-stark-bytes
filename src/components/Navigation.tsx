@@ -73,7 +73,7 @@ const Navigation = () => {
                 size="sm"
                 className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue hover-stark repulsor overflow-hidden"
               >
-                <a href="/Comon_Resume.pdf" download>
+                <a href="/Comon_Rashid-(CV).pdf" download>
                   <span className="relative z-10">Download CV</span>
                 </a>
               </Button>

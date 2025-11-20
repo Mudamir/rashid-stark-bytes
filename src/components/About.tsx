@@ -184,7 +184,7 @@ const About = () => {
                 </div>
                 <div className="flex-1 relative z-10">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-sm md:text-base lg:text-lg text-foreground group-hover:text-accent transition-colors">Software Engineering</h4>
+                    <h4 className="font-bold text-sm md:text-base lg:text-lg text-foreground group-hover:text-accent transition-colors">Software Development</h4>
                     <div className="flex items-center gap-1">
                       <Rocket className="w-3 h-3 text-accent fill-accent/20" />
                       <span className="text-[10px] font-mono text-accent/80">MARK XLII</span>
@@ -209,7 +209,7 @@ const About = () => {
                 size="lg"
                 className="relative bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold glow-gold hover-stark touch-feedback w-full sm:w-auto h-12 md:h-14 text-base md:text-lg repulsor overflow-hidden group"
               >
-                <a href="/Comon_Resume.pdf" download className="flex items-center justify-center gap-2">
+                <a href="/Comon_Rashid-(CV).pdf" download className="flex items-center justify-center gap-2">
                   <Download className="w-5 h-5 group-hover:animate-bounce" />
                   <span className="relative z-10">Download Full CV</span>
                 </a>
