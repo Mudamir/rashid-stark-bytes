@@ -16,10 +16,23 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     type: "work",
+    title: "IT Specialist / Software Engineer",
+    organization: "AGSOUTH FRUITS PACIFIC BRANCH OFFICE",
+    location: "(Davao, Philippines) - Office",
+    period: "Dec 2025 - Present",
+    description: [
+      "Developed enterprise software solutions including a payroll system for 300+ employees processing PHP 1.3M-PHP 2M monthly, integrating Philippine statutory contributions and loan management.",
+      "Built shipping analytics tools for fruit export operations, automated business workflows, and maintained IT infrastructure while providing technical support."
+    ],
+    skills: ["Payroll Systems", "Shipping Analytics", "Business Process Automation", "IT Infrastructure", "Technical Support"],
+    logo: "/Experience/AGSOUTH-LOGO.png"
+  },
+  {
+    type: "work",
     title: "UI/UX Designer / Junior AI Engineer",
     organization: "Creative Score",
     location: "(London, UK) - Remote",
-    period: "Sept 2025 - Present",
+    period: "Sept 2025 - Feb 2026",
     description: [
       "Developed innovative, user-focused software that improved customer experience and contributed to higher marketing conversion rates.",
       "Implemented modern AI models that automated key workflows, boosted overall system efficiency, and lowered operational expenses."

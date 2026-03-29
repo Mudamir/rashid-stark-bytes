@@ -12,9 +12,26 @@ interface Certification {
   color: "primary" | "secondary" | "accent";
   verifyUrl?: string;
   logo: string;
+  /** Renders a full-width spotlight card with a large certificate image */
+  featured?: boolean;
+  issued?: string;
+  validThrough?: string;
 }
 
 const certifications: Certification[] = [
+  {
+    id: "ccna",
+    title: "Cisco Certified Network Associate (CCNA)",
+    provider: "Cisco",
+    category: "Networks",
+    icon: Network,
+    color: "accent",
+    verifyUrl: "https://www.cisco.com/go/verifycertificate",
+    logo: "/projects/ccna.png",
+    featured: true,
+    issued: "March 9, 2026",
+    validThrough: "March 9, 2029"
+  },
   // Data Science
   {
     id: "1",
@@ -548,9 +565,14 @@ const Certifications = () => {
 
   const filters = ["All", "Data Science", "AI/ML", "Cybersecurity", "Programming", "Networks", "Social Media", "Microsoft Excel"];
 
-  const filteredCerts = activeFilter === "All" 
-    ? certifications 
-    : certifications.filter(cert => cert.category === activeFilter);
+  const filteredCerts = (activeFilter === "All"
+    ? certifications
+    : certifications.filter(cert => cert.category === activeFilter)
+  ).sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return 0;
+  });
 
   const getCategoryCount = (category: string) => {
     if (category === "All") return certifications.length;
@@ -597,7 +619,7 @@ const Certifications = () => {
             <span className="block text-primary mt-2">Proven Expertise</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4 leading-relaxed">
-            Certified by industry leaders including Google, LinkedIn, Meta, IBM, and Microsoft
+            Industry credentials including Cisco CCNA, plus certifications from Google, LinkedIn, Meta, IBM, and Microsoft
           </p>
         </div>
 
@@ -628,6 +650,66 @@ const Certifications = () => {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 px-4">
           {filteredCerts.map((cert, index) => {
             const Icon = cert.icon;
+            if (cert.featured) {
+              return (
+                <Card
+                  key={cert.id}
+                  className="relative group overflow-hidden bg-card/40 backdrop-blur-sm border-2 border-accent/40 hover:border-accent/70 transition-all duration-300 hover:shadow-xl hover:shadow-accent/15 md:col-span-2 lg:col-span-3 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.03}s` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-primary/5 opacity-80 pointer-events-none" />
+                  <div className="relative p-5 md:p-8">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:gap-8">
+                      <div className="flex-1 mb-6 lg:mb-0">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
+                          <Award className="w-3.5 h-3.5" />
+                          Latest credential
+                        </div>
+                        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                          {cert.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-4">{cert.provider}</p>
+                        {(cert.issued || cert.validThrough) && (
+                          <p className="text-sm text-muted-foreground mb-4">
+                            {cert.issued && <span>Issued {cert.issued}</span>}
+                            {cert.issued && cert.validThrough && <span className="mx-2 text-border">·</span>}
+                            {cert.validThrough && <span>Valid through {cert.validThrough}</span>}
+                          </p>
+                        )}
+                        <div className="flex flex-wrap items-center gap-3">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent/10 text-accent">
+                            {cert.category}
+                          </span>
+                          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                            <span>Verified</span>
+                          </div>
+                        </div>
+                        {cert.verifyUrl && (
+                          <a
+                            href={cert.verifyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-accent/15 text-accent hover:bg-accent/25 transition-all"
+                          >
+                            <span>Verify on Cisco</span>
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        )}
+                      </div>
+                      <div className="lg:w-[min(100%,520px)] flex-shrink-0 rounded-xl border border-border/60 bg-muted/20 overflow-hidden shadow-inner">
+                        <img
+                          src={cert.logo}
+                          alt={`${cert.title} certificate`}
+                          className="w-full h-auto max-h-[min(70vh,520px)] object-contain object-top"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-90" />
+                </Card>
+              );
+            }
             return (
               <Card
                 key={cert.id}
@@ -731,6 +813,7 @@ const Certifications = () => {
             <div className="text-2xl md:text-3xl font-bold text-secondary/60 hover:text-secondary transition-colors">Meta</div>
             <div className="text-2xl md:text-3xl font-bold text-primary/60 hover:text-primary transition-colors">IBM</div>
             <div className="text-2xl md:text-3xl font-bold text-primary/60 hover:text-primary transition-colors">Microsoft</div>
+            <div className="text-2xl md:text-3xl font-bold text-accent/70 hover:text-accent transition-colors">Cisco</div>
           </div>
         </div>
       </div>

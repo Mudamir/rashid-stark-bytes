@@ -25,6 +25,42 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "agsouth-payroll",
+    title: "AG South Philippine Payroll Management System",
+    company: "AGSouth Fruits Pacific · Full-Stack Developer",
+    period: "Dec 2025 - March 2026",
+    category: "Software Development",
+    type: "software",
+    image: "/projects/agsouth-philippine-payroll-system.png",
+    description: "Built an end-to-end payroll management system from scratch that processes semi-monthly payroll for 250+ employees, covering statutory contributions, loans, dynamic deductions, and payroll cutoff controls.",
+    achievements: [
+      "Processed PHP 1.5M-PHP 2M per cutoff with payroll locking and salary snapshots",
+      "Implemented SSS, PhilHealth, Pag-IBIG, withholding tax, loans, and dynamic deduction logic",
+      "Delivered attendance input, government contribution reports, cash summary and e-credit exports, and PDF payslips"
+    ],
+    tech: ["React", "TypeScript", "Payroll Systems", "PDF Generation", "Reporting", "Business Logic"],
+    color: "accent",
+    links: {}
+  },
+  {
+    id: "agrisouth-analytics",
+    title: "Agrisouth Analytics - Shipment Data Tracking & Analytics Platform",
+    company: "AGSouth Fruits Pacific · Full-Stack Developer",
+    period: "Dec 2025 - March 2026",
+    category: "Software Development",
+    type: "software",
+    image: "/projects/agrisouth-shipment-analytics-platform.png",
+    description: "Built an end-to-end shipment data tracking and analytics web app for banana and pineapple exports that ingests, validates, and analyzes operational shipping records across containers, cartons, suppliers, destinations, ETD/ETA, and invoices.",
+    achievements: [
+      "Designed a structured data model and dashboard filters for year, week, supplier, shipping line, and port",
+      "Delivered real-time pack and supplier dashboards plus a configurable P&L view",
+      "Generated grouped PDF invoices and company-branded documents for better visibility and auditability"
+    ],
+    tech: ["React", "TypeScript", "Analytics Dashboards", "Data Validation", "PDF Generation", "P&L Reporting"],
+    color: "accent",
+    links: {}
+  },
+  {
     id: "1",
     title: "MathemaThink: Dyscalculia Screening Tool",
     company: "UI/UX Designer | Computer Scientist | Researcher",

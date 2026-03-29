@@ -73,7 +73,7 @@ const Navigation = () => {
                 size="sm"
                 className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue hover-stark repulsor overflow-hidden"
               >
-                <a href="/Comon_Rashid-(CV).pdf" download>
+                <a href="/Comon_Resume-(CV).pdf" download="Rashid_Comon_Resume.pdf">
                   <span className="relative z-10">Download CV</span>
                 </a>
               </Button>
@@ -120,7 +120,7 @@ const Navigation = () => {
               size="lg"
               className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue hover-stark w-full max-w-xs mt-4 touch-feedback h-14 text-lg repulsor overflow-hidden"
             >
-              <a href="/Comon_Resume.pdf" download>
+              <a href="/Comon_Resume-(CV).pdf" download="Rashid_Comon_Resume.pdf">
                 <span className="relative z-10">Download CV</span>
               </a>
             </Button>

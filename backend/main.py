@@ -80,6 +80,10 @@ def extract_resume_text() -> str:
     # Try multiple possible paths for the PDF
     base_path = Path(__file__).parent.parent  # Go up from backend/ to project root
     possible_paths = [
+        base_path / "public" / "Comon_Resume-(CV).pdf",
+        base_path / "dist" / "Comon_Resume-(CV).pdf",
+        Path("public") / "Comon_Resume-(CV).pdf",
+        Path("dist") / "Comon_Resume-(CV).pdf",
         base_path / "public" / "Comon_Rashid-(CV).pdf",
         base_path / "dist" / "Comon_Rashid-(CV).pdf",
         Path("public") / "Comon_Rashid-(CV).pdf",
@@ -197,7 +201,7 @@ Based on the resume content above, provide a clear and accurate answer to the us
         
         return QueryResponse(
             answer=answer,
-            sources=["Comon_Rashid-(CV).pdf"],
+            sources=["Comon_Resume-(CV).pdf"],
             confidence=0.9  # High confidence when using full resume context
         )
         
