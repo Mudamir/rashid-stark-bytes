@@ -201,7 +201,7 @@ Based on the resume content above, provide a clear and accurate answer to the us
         
         return QueryResponse(
             answer=answer,
-            sources=["Comon_Resume-(CV).pdf"],
+            sources=["Google Drive resume"],
             confidence=0.9  # High confidence when using full resume context
         )
         

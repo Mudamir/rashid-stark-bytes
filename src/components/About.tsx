@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import headshot from "@/assets/headshot.jpg";
+import { RESUME_GOOGLE_DRIVE_URL } from "@/lib/resumePdf";
 import { Sparkles, Code, Palette, Download, Zap, Cpu, Activity, Target, Hexagon, Shield, Rocket } from "lucide-react";
 
 const About = () => {
@@ -209,7 +210,12 @@ const About = () => {
                 size="lg"
                 className="relative bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bold glow-gold hover-stark touch-feedback w-full sm:w-auto h-12 md:h-14 text-base md:text-lg repulsor overflow-hidden group"
               >
-                <a href="/Comon_Resume-(CV).pdf" download="Rashid_Comon_Resume.pdf" className="flex items-center justify-center gap-2">
+                <a
+                  href={RESUME_GOOGLE_DRIVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2"
+                >
                   <Download className="w-5 h-5 group-hover:animate-bounce" />
                   <span className="relative z-10">Download Full CV</span>
                 </a>

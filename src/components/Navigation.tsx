@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { RESUME_GOOGLE_DRIVE_URL } from "@/lib/resumePdf";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,7 +74,11 @@ const Navigation = () => {
                 size="sm"
                 className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue hover-stark repulsor overflow-hidden"
               >
-                <a href="/Comon_Resume-(CV).pdf" download="Rashid_Comon_Resume.pdf">
+                <a
+                  href={RESUME_GOOGLE_DRIVE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <span className="relative z-10">Download CV</span>
                 </a>
               </Button>
@@ -120,7 +125,12 @@ const Navigation = () => {
               size="lg"
               className="relative bg-primary hover:bg-primary/90 text-primary-foreground font-semibold glow-blue hover-stark w-full max-w-xs mt-4 touch-feedback h-14 text-lg repulsor overflow-hidden"
             >
-              <a href="/Comon_Resume-(CV).pdf" download="Rashid_Comon_Resume.pdf">
+              <a
+                href={RESUME_GOOGLE_DRIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
                 <span className="relative z-10">Download CV</span>
               </a>
             </Button>

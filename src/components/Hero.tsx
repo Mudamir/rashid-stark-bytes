@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Zap } from "lucide-react";
+import { RESUME_GOOGLE_DRIVE_URL } from "@/lib/resumePdf";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -110,7 +111,11 @@ const Hero = () => {
               asChild
               className="relative border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground font-semibold px-6 md:px-8 py-5 md:py-6 text-base md:text-lg hover-stark touch-feedback w-full sm:w-auto"
             >
-              <a href="/Comon_Resume-(CV).pdf" download="Rashid_Comon_Resume.pdf">
+              <a
+                href={RESUME_GOOGLE_DRIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="relative z-10">Download CV</span>
               </a>
             </Button>
