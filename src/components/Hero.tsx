@@ -82,7 +82,7 @@ const Hero = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8 px-4">
             <div className="relative flex flex-col items-center gap-2 p-4 rounded-lg bg-card/30 border border-primary/20 backdrop-blur-sm hover-stark group">
               <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-              <span className="text-2xl md:text-3xl font-black text-primary relative z-10">3 +</span>
+              <span className="text-2xl md:text-3xl font-black text-primary relative z-10">4 +</span>
               <span className="text-xs md:text-sm text-muted-foreground text-center relative z-10">Years Experience</span>
             </div>
             <div className="relative flex flex-col items-center gap-2 p-4 rounded-lg bg-card/30 border border-secondary/20 backdrop-blur-sm hover-stark group">
