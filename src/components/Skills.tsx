@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Palette, Code, Database } from "lucide-react";
+import { Brain, LineChart, Code, Database } from "lucide-react";
 
 interface SkillCategory {
   title: string;
@@ -23,9 +23,9 @@ const skillCategories: SkillCategory[] = [
     color: "secondary"
   },
   {
-    title: "UI/UX Design",
-    icon: Palette,
-    skills: ["Figma", "Framer", "Webflow", "User Research", "Prototyping", "Wireframing", "Design Systems"],
+    title: "Financial Engineering",
+    icon: LineChart,
+    skills: ["Financial Modeling", "Portfolio Analytics", "Risk Management", "NAVPU Forecasting", "Excel", "Quantitative Analysis", "Financial Analytics"],
     color: "accent"
   },
   {
@@ -56,7 +56,7 @@ const Skills = () => {
             Skills & Expertise
           </h2>
           <p className="text-muted-foreground text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
-            A comprehensive toolkit spanning AI, design, and development
+            A comprehensive toolkit spanning AI, financial engineering, and development
           </p>
         </div>
 

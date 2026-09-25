@@ -16,6 +16,19 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     type: "work",
+    title: "Rental Real Estate Financial Manager",
+    organization: "Ferrer Deco Rental Real Estate",
+    location: "(Davao City, Philippines) - Freelance",
+    period: "May 2026 - Present",
+    description: [
+      "Manage rental financial operations, including collections, expense tracking, and cash-flow reporting across properties.",
+      "Maintain ledger records and period reporting so property finances stay accurate and ready for review."
+    ],
+    skills: ["Financial Management", "Cash Flow", "Ledger Records", "Rental Operations", "Reporting"],
+    logo: "/Experience/ferrerdeco-logo.png"
+  },
+  {
+    type: "work",
     title: "IT Specialist / Software Engineer",
     organization: "AGSOUTH FRUITS PACIFIC BRANCH OFFICE",
     location: "(Davao, Philippines) - Office",

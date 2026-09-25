@@ -1,15 +1,13 @@
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, FileText, Zap, Briefcase, Filter } from "lucide-react";
+import { Briefcase, ExternalLink, FileText, Github } from "lucide-react";
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 
 interface Project {
   id: string;
   title: string;
   company: string;
   period: string;
-  category: "AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design" | "All" | ("AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design")[];
+  category: "AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design" | "Financial Engineering" | "All" | ("AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design" | "Financial Engineering")[];
   type: "software" | "research" | "design";
   description: string;
   achievements: string[];
@@ -25,8 +23,26 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "agsouth-finance-erp",
+    title: "Finance ERP System",
+    company: "AGSouth Enterprise Finance & ERP System",
+    period: "March 2026 - September 2026",
+    category: ["Software Development", "Financial Engineering"],
+    type: "software",
+    image: "/projects/Finance-placeholder.png",
+    description: "Architected and developed a full-scale corporate finance ERP module to centralize general ledger operations, multi-currency transactions, and branch-level cash flow management.",
+    achievements: [
+      "Engineered core accounting workflows including accounts payable/receivable, asset depreciation tracking, and automated reconciliation schedules, replacing manual ledger tracking.",
+      "Designed dynamic ledger logic and role-based financial audit trails, ensuring data integrity, strict period locks, and real-time financial reporting for branch leadership.",
+      "Integrated cross-system financial touchpoints with existing payroll and operational pipelines to provide unified expense visibility and export-ready BIR/statutory documentation."
+    ],
+    tech: ["General Ledger", "Multi-Currency", "Accounts Payable", "Accounts Receivable", "Audit Trails", "Financial Reporting"],
+    color: "secondary",
+    links: {}
+  },
+  {
     id: "agsouth-payroll",
-    title: "AG South Philippine Payroll Management System",
+    title: "Agrisouth Pacific Payroll Management System",
     company: "AGSouth Fruits Pacific · Full-Stack Developer",
     period: "Dec 2025 - March 2026",
     category: "Software Development",
@@ -108,7 +124,7 @@ const projects: Project[] = [
     period: "Jan 2022 - Nov 2023",
     category: "AI/ML",
     type: "research",
-    image: "/projects/research-placeholder.png",
+    image: "/projects/phishing-placeholder.png",
     description: "Developed an ensemble machine learning framework leveraging NLP and TF-IDF for phishing detection, providing high accuracy and interpretability. This work advances understanding of AI's role in cybersecurity by demonstrating how ensemble methods and explainability improve robustness and trust in automated threat detection systems.",
     achievements: [
       "Developed ensemble ML framework with high accuracy for phishing detection",
@@ -301,10 +317,82 @@ const projects: Project[] = [
   }
 ];
 
-const Projects = () => {
-      const [activeFilter, setActiveFilter] = useState<"All" | "AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design">("All");
+const categoriesOf = (project: Project) =>
+  Array.isArray(project.category) ? project.category : [project.category];
 
-  const filters = ["All", "AI/ML", "UI/UX Design", "Software Development", "Graphic Design"];
+function ProjectVisual({
+  src,
+  alt,
+  onOpen,
+}: {
+  src?: string;
+  alt: string;
+  onOpen: (src: string) => void;
+}) {
+  const [failed, setFailed] = useState(!src);
+
+  if (!src || failed) {
+    return (
+      <div className="absolute inset-0 flex items-end bg-muted/50 p-4">
+        <span className="text-[10px] font-medium uppercase tracking-[0.22em] text-muted-foreground">
+          Photograph
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(src)}
+      className="absolute inset-0 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      aria-label={`View ${alt}`}
+    >
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        className="h-full w-full object-contain"
+        onError={() => setFailed(true)}
+      />
+    </button>
+  );
+}
+
+function ProjectLinks({ links }: { links?: Project["links"] }) {
+  if (!links) return null;
+
+  const items = [
+    links.paper ? { href: links.paper, label: "Paper", icon: FileText } : null,
+    links.github ? { href: links.github, label: "Code", icon: Github } : null,
+    links.demo ? { href: links.demo, label: "Demo", icon: ExternalLink } : null,
+  ].filter(Boolean) as { href: string; label: string; icon: typeof FileText }[];
+
+  if (items.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((item) => (
+        <a
+          key={item.label}
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-9 items-center gap-2 rounded-md border border-border bg-background px-3 text-xs font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+        >
+          <item.icon className="h-3.5 w-3.5" />
+          {item.label}
+        </a>
+      ))}
+    </div>
+  );
+}
+
+const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState<"All" | "AI/ML" | "UI/UX Design" | "Software Development" | "Graphic Design" | "Financial Engineering">("All");
+  const [preview, setPreview] = useState<{ src: string; title: string } | null>(null);
+
+  const filters = ["All", "AI/ML", "UI/UX Design", "Software Development", "Financial Engineering", "Graphic Design"];
 
   const filteredProjects = activeFilter === "All" 
     ? projects 
@@ -356,207 +444,98 @@ const Projects = () => {
           </p>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+          <div className="flex flex-wrap justify-center gap-2">
             {filters.map((filter) => (
               <button
                 key={filter}
-                onClick={() => setActiveFilter(filter as any)}
-                className={`relative px-4 py-2 rounded-full text-xs md:text-sm font-semibold transition-all duration-300 ${
+                onClick={() => setActiveFilter(filter as typeof activeFilter)}
+                className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-colors md:text-sm ${
                   activeFilter === filter
-                    ? 'bg-primary text-primary-foreground glow-blue'
-                    : 'bg-card/50 text-muted-foreground hover:text-foreground border border-border hover-stark'
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-card hover:text-foreground"
                 }`}
               >
-                <span className="relative z-10">{filter}</span>
-                {activeFilter === filter && (
-                  <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full"></div>
-                )}
+                {filter}
               </button>
             ))}
           </div>
         </div>
 
-        {/* Uniform Grid Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <Card
-              key={project.id}
-              className={`group relative overflow-hidden rounded-xl bg-background/60 backdrop-blur-xl border-2 transition-all duration-300 hover:-translate-y-1 flex flex-col animate-fade-in-up ${
-                project.color === 'primary' 
-                  ? 'border-primary/30 hover:border-primary/50' 
-                  : project.color === 'secondary' 
-                  ? 'border-secondary/30 hover:border-secondary/50'
-                  : 'border-accent/30 hover:border-accent/50'
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+          {filteredProjects.map((project, index) => {
+            const featured = index === 0;
+            const categories = categoriesOf(project);
+            const indexLabel = String(index + 1).padStart(2, "0");
+            const results = project.achievements.slice(0, featured ? 3 : 1);
 
-              {/* Project Image / Research Visual */}
-              <div className={`relative h-48 overflow-hidden ${
-                project.color === 'primary' ? 'bg-gradient-to-br from-primary/10 to-background' :
-                project.color === 'secondary' ? 'bg-gradient-to-br from-secondary/10 to-background' :
-                'bg-gradient-to-br from-accent/10 to-background'
-              }`}>
-                {project.image ? (
-                  <>
-                    <img 
-                      src={project.image} 
+            return (
+              <article
+                key={project.id}
+                className={`overflow-hidden rounded-lg border border-border bg-background/30 ${
+                  featured ? "lg:col-span-2 lg:grid lg:grid-cols-12 lg:items-center" : "flex flex-col"
+                }`}
+              >
+                <div className={`p-3 md:p-4 ${featured ? "lg:col-span-7" : ""}`}>
+                  <div className="relative aspect-[7/5] w-full overflow-hidden border border-border bg-muted/30">
+                    <ProjectVisual
+                      src={project.image}
                       alt={project.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
+                      onOpen={(src) => setPreview({ src, title: project.title })}
                     />
-                    {/* Darker overlay for better text visibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-background/30"></div>
-                  </>
-                ) : (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <FileText className={`w-16 h-16 ${
-                      project.color === 'primary' ? 'text-primary' :
-                      project.color === 'secondary' ? 'text-secondary' :
-                      'text-accent'
-                    } opacity-30`} />
-                    <span className="text-xs font-mono tracking-wider text-muted-foreground">RESEARCH PAPER</span>
                   </div>
-                )}
-                
-                {/* Category badges - moved to bottom for better visibility */}
-                <div className="absolute bottom-3 left-3 right-3 flex gap-2 flex-wrap">
-                  {Array.isArray(project.category) ? (
-                    project.category.map((cat, idx) => (
-                      <Badge 
-                        key={idx}
-                        className={`text-[10px] font-medium backdrop-blur-md shadow-lg ${
-                          project.color === 'primary' ? 'bg-primary/90 text-primary-foreground border-primary' :
-                          project.color === 'secondary' ? 'bg-secondary/90 text-secondary-foreground border-secondary' :
-                          'bg-accent/90 text-accent-foreground border-accent'
-                        }`}
-                      >
-                        {cat}
-                      </Badge>
-                    ))
-                  ) : (
-                    <Badge 
-                      className={`text-[10px] font-medium backdrop-blur-md shadow-lg ${
-                        project.color === 'primary' ? 'bg-primary/90 text-primary-foreground border-primary' :
-                        project.color === 'secondary' ? 'bg-secondary/90 text-secondary-foreground border-secondary' :
-                        'bg-accent/90 text-accent-foreground border-accent'
-                      }`}
-                    >
-                      {project.category}
-                    </Badge>
-                  )}
                 </div>
-              </div>
 
-              <div className="p-5 md:p-6 space-y-4 relative z-10 flex flex-col flex-1">
-                {/* Header */}
-                <div className="flex-1 space-y-3">
-                  {/* Period */}
-                  <span className="text-xs text-muted-foreground">{project.period}</span>
-                  
-                  {/* Title */}
-                  <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight">
+                <div
+                  className={`flex flex-col border-t border-border px-6 py-6 md:px-7 md:py-6 ${
+                    featured ? "lg:col-span-5 lg:border-l lg:border-t-0" : ""
+                  }`}
+                >
+                  <div className="flex items-baseline justify-between gap-4 border-b border-border pb-3">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+                      <span className="text-foreground/80">{indexLabel}</span>
+                      <span className="mx-2 text-border">/</span>
+                      {categories.join(" · ")}
+                    </p>
+                    <p className="shrink-0 text-xs text-muted-foreground">{project.period}</p>
+                  </div>
+
+                  <h3
+                    className={`mt-5 font-semibold tracking-tight text-foreground ${
+                      featured ? "text-2xl leading-snug md:text-[1.7rem]" : "text-lg leading-snug"
+                    }`}
+                  >
                     {project.title}
                   </h3>
-                  
-                  {/* Company */}
-                  <p className={`text-sm font-medium ${
-                    project.color === 'primary' ? 'text-primary' :
-                    project.color === 'secondary' ? 'text-secondary' :
-                    'text-accent'
-                  }`}>{project.company}</p>
-                  
-                  {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                  <p className="mt-2 text-sm text-foreground/70">{project.company}</p>
+
+                  <p className={`mt-4 text-sm leading-6 text-muted-foreground ${featured ? "" : "line-clamp-3"}`}>
                     {project.description}
                   </p>
-                </div>
 
-                {/* Tech Stack */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.slice(0, 4).map((tech) => (
-                    <Badge 
-                      key={tech} 
-                      variant="outline"
-                      className="text-xs border-border/50 hover:border-border transition-colors"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                  {project.tech.length > 4 && (
-                    <Badge variant="outline" className="text-xs border-border/50">
-                      +{project.tech.length - 4}
-                    </Badge>
+                  {results.length > 0 && (
+                    <ul className="mt-4 space-y-2 border-t border-border pt-4">
+                      {results.map((item) => (
+                        <li key={item} className="text-sm leading-6 text-foreground/80">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   )}
-                </div>
 
-                {/* Action Buttons */}
-                {project.links && Object.keys(project.links).length > 0 && (
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.links.github && (
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className={`relative flex-1 min-w-[100px] text-xs transition-all duration-300 ${
-                          project.color === 'primary' 
-                            ? 'border-primary/40 text-primary hover:bg-primary/10 hover:border-primary' 
-                            : project.color === 'secondary'
-                            ? 'border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary'
-                            : 'border-accent/40 text-accent hover:bg-accent/10 hover:border-accent'
-                        }`}
-                      >
-                        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                          <Github className="w-3.5 h-3.5" />
-                          <span>Code</span>
-                        </a>
-                      </Button>
-                    )}
-                    {project.links.demo && (
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className={`relative flex-1 min-w-[100px] text-xs transition-all duration-300 ${
-                          project.color === 'primary' 
-                            ? 'border-primary/40 text-primary hover:bg-primary/10 hover:border-primary' 
-                            : project.color === 'secondary'
-                            ? 'border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary'
-                            : 'border-accent/40 text-accent hover:bg-accent/10 hover:border-accent'
-                        }`}
-                      >
-                        <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                          <ExternalLink className="w-3.5 h-3.5" />
-                          <span>Demo</span>
-                        </a>
-                      </Button>
-                    )}
-                    {project.links.paper && (
-                      <Button
-                        asChild
-                        size="sm"
-                        variant="outline"
-                        className={`relative flex-1 min-w-[100px] text-xs transition-all duration-300 ${
-                          project.color === 'primary' 
-                            ? 'border-primary/40 text-primary hover:bg-primary/10 hover:border-primary' 
-                            : project.color === 'secondary'
-                            ? 'border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary'
-                            : 'border-accent/40 text-accent hover:bg-accent/10 hover:border-accent'
-                        }`}
-                      >
-                        <a href={project.links.paper} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                          <FileText className="w-3.5 h-3.5" />
-                          <span>Paper</span>
-                        </a>
-                      </Button>
-                    )}
+                  <p className="mt-4 text-xs leading-5 text-muted-foreground">
+                    <span className="mr-2 font-mono text-[10px] uppercase tracking-[0.16em] text-foreground/45">
+                      Stack
+                    </span>
+                    {(featured ? project.tech : project.tech.slice(0, 4)).join(" · ")}
+                  </p>
+
+                  <div className="mt-5">
+                    <ProjectLinks links={project.links} />
                   </div>
-                )}
-              </div>
-            </Card>
-          ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         {/* No results message */}
@@ -566,6 +545,26 @@ const Projects = () => {
           </div>
         )}
       </div>
+
+      <Dialog open={preview !== null} onOpenChange={(open) => !open && setPreview(null)}>
+        <DialogContent className="w-[min(94vw,1100px)] max-w-none gap-3 border-border bg-background p-3 sm:p-4">
+          <DialogTitle className="pr-8 text-base font-semibold tracking-tight">
+            {preview?.title}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            Larger view of the project photograph.
+          </DialogDescription>
+          {preview && (
+            <div className="overflow-hidden border border-border bg-muted/30">
+              <img
+                src={preview.src}
+                alt={preview.title}
+                className="max-h-[78vh] w-full object-contain"
+              />
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

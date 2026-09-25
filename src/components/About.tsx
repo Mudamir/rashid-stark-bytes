@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import headshot from "@/assets/headshot.jpg";
 import { RESUME_GOOGLE_DRIVE_URL } from "@/lib/resumePdf";
-import { Sparkles, Code, Palette, Download, Zap, Cpu, Activity, Target, Hexagon, Shield, Rocket } from "lucide-react";
+import { Sparkles, Code, LineChart, Download, Zap, Cpu, Activity, Target, Hexagon, Shield, Rocket } from "lucide-react";
 
 const About = () => {
   return (
@@ -106,7 +106,7 @@ const About = () => {
             </div>
 
             <p className="text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
-              I aim to apply my expertise in <span className="text-primary font-semibold">UI/UX design</span>, <span className="text-secondary font-semibold">software development</span>, and <span className="text-accent font-semibold">emerging technologies</span> to build human-centered digital experiences and intelligent solutions, contributing as a future <span className="text-foreground font-bold">UI/UX Designer</span> or <span className="text-foreground font-bold">AI Engineer</span>.
+              I am an aspiring <span className="text-foreground font-bold">Quantitative Developer</span> and <span className="text-foreground font-bold">Systems Engineer</span>. I build high-integrity financial systems with <span className="text-primary font-semibold">Python</span>, <span className="text-secondary font-semibold">PostgreSQL</span>, and <span className="text-accent font-semibold">modern full-stack software</span>.
             </p>
 
             <div className="space-y-4 md:space-y-5">
@@ -148,20 +148,20 @@ const About = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-secondary/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   <div className="p-2 rounded-lg bg-secondary/10 group-hover:bg-secondary/20 transition-colors relative">
-                    <Palette className="w-5 h-5 md:w-6 md:h-6 text-secondary flex-shrink-0 relative z-10" />
+                    <LineChart className="w-5 h-5 md:w-6 md:h-6 text-secondary flex-shrink-0 relative z-10" />
                     <div className="absolute -top-1 -right-1 w-2 h-2 bg-secondary rounded-full animate-ping"></div>
                   </div>
                 </div>
                 <div className="flex-1 relative z-10">
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-sm md:text-base lg:text-lg text-foreground group-hover:text-secondary transition-colors">UI/UX & Graphic Design</h4>
+                    <h4 className="font-bold text-sm md:text-base lg:text-lg text-foreground group-hover:text-secondary transition-colors">Financial Engineering</h4>
                     <div className="flex items-center gap-1">
                       <Shield className="w-3 h-3 text-secondary fill-secondary/20" />
                       <span className="text-[10px] font-mono text-secondary/80">MARK XLVI</span>
                     </div>
                   </div>
                   <p className="text-xs md:text-sm text-muted-foreground leading-relaxed mb-2">
-                    Figma, Framer, Webflow, User Research, Prototyping, Wireframing, Design Systems, Adobe Photoshop
+                    Financial Modeling, Portfolio Analytics, Risk Management, NAVPU Forecasting, Excel, Python, Quantitative Analysis
                   </p>
                   {/* Iron Man Suit Indicators */}
                   <div className="flex items-center gap-1">

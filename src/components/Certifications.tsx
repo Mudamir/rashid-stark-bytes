@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Code, Database, TrendingUp, Share2, Award, Shield, Brain, Network, ExternalLink } from "lucide-react";
+import { GraduationCap, Code, Database, TrendingUp, Share2, Award, Shield, Brain, Network, ExternalLink, Copy, Check } from "lucide-react";
 import { useState } from "react";
 
 interface Certification {
@@ -16,6 +16,8 @@ interface Certification {
   featured?: boolean;
   issued?: string;
   validThrough?: string;
+  /** Cisco-style verification code the visitor can copy */
+  verificationId?: string;
 }
 
 const certifications: Certification[] = [
@@ -30,7 +32,8 @@ const certifications: Certification[] = [
     logo: "/projects/ccna.png",
     featured: true,
     issued: "March 9, 2026",
-    validThrough: "March 9, 2029"
+    validThrough: "March 9, 2029",
+    verificationId: "e7275ad236f44c74a4cfa22bd9351401"
   },
   // Data Science
   {
@@ -375,7 +378,8 @@ const certifications: Certification[] = [
     category: "Microsoft Excel",
     icon: Database,
     color: "primary",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+    logo: "/projects/excel-microsoft.png",
+    featured: true,
     verifyUrl: "https://www.certiport.com/portal/pages/credentialverification.aspx"
   },
   {
@@ -560,6 +564,36 @@ const certifications: Certification[] = [
   }
 ];
 
+function CopyVerificationId({ value }: { value: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  };
+
+  return (
+    <div className="mt-5 flex flex-col sm:flex-row sm:items-center gap-2">
+      <code className="min-w-0 break-all rounded-lg border border-border bg-background/70 px-3 py-2 font-mono text-xs md:text-sm text-foreground">
+        {value}
+      </code>
+      <button
+        type="button"
+        onClick={copy}
+        className="inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-lg border border-accent/40 bg-accent/10 px-3 text-xs font-medium text-accent transition-colors hover:bg-accent/20"
+      >
+        {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+        {copied ? "Copied" : "Copy"}
+      </button>
+    </div>
+  );
+}
+
 const Certifications = () => {
   const [activeFilter, setActiveFilter] = useState<"All" | "Data Science" | "Programming" | "Social Media" | "Cybersecurity" | "AI/ML" | "Networks" | "Microsoft Excel">("All");
 
@@ -648,7 +682,9 @@ const Certifications = () => {
 
         {/* Certifications Grid - Modern Card Design */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 px-4">
-          {filteredCerts.map((cert, index) => {
+          {[...filteredCerts]
+            .sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)))
+            .map((cert, index) => {
             const Icon = cert.icon;
             if (cert.featured) {
               return (
@@ -663,7 +699,7 @@ const Certifications = () => {
                       <div className="flex-1 mb-6 lg:mb-0">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent text-xs font-semibold uppercase tracking-wide mb-4">
                           <Award className="w-3.5 h-3.5" />
-                          Latest credential
+                          {cert.id === "ccna" ? "Latest credential" : "Credential"}
                         </div>
                         <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
                           {cert.title}
@@ -685,14 +721,15 @@ const Certifications = () => {
                             <span>Verified</span>
                           </div>
                         </div>
+                        {cert.verificationId && <CopyVerificationId value={cert.verificationId} />}
                         {cert.verifyUrl && (
                           <a
                             href={cert.verifyUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="mt-5 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-accent/15 text-accent hover:bg-accent/25 transition-all"
+                            className="mt-3 inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium bg-accent/15 text-accent hover:bg-accent/25 transition-all"
                           >
-                            <span>Verify on Cisco</span>
+                            <span>{cert.provider === "Cisco" ? "Verify on Cisco" : "View Certificate"}</span>
                             <ExternalLink className="w-4 h-4" />
                           </a>
                         )}
